@@ -1,0 +1,229 @@
+/* Général */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  body {
+    background-color: #f5f5f5;
+  }
+  
+  /* Header */
+  .header {
+    background: radial-gradient(#fff, #ccc);
+    padding: 20px;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+  }
+    
+  nav ul {
+    max-height: 200px;
+    transition: max-height 0.5s ease-out;
+  }
+
+  .menu-icon {
+    display: none;
+    cursor: pointer;
+  }
+
+  nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  /* Styles pour le carrousel */
+.carousel {
+  position:absolute;
+  top: 120px; left: 800px;
+  max-width: 500px; 
+  margin: 0 auto; /* Centre le carrousel horizontalement */
+  border-radius: 20px;
+}
+
+.carousel-inner img {
+  max-height: 300; /* Définit la hauteur maximale des images du carrousel */
+  object-fit: cover; /* Pour conserver les proportions de l'image */
+  border-radius: 20px;}
+
+  .row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .col-2 {
+    flex-basis: 50%;
+    min-width: 300px;
+    max-width: 500px;
+    padding: 20px;
+  }
+  
+  .col-2 img {
+    max-width: 100%;
+    padding: 50px 0;
+  }
+  
+  .btn {
+    display: inline-block;
+    background: #ff523b;
+    color: #fff;
+    padding: 8px 30px;
+    margin: 30px 0;
+    border-radius: 30px;
+    transition: background 0.5s;
+  }
+  
+  .btn:hover {
+    background: #563434;
+  }
+  
+  /* Style for the menu when it's open (toggled) */
+  .menuItems.active {
+    max-height: 300px; /* Sets the maximum height of the menu when open */
+  }
+  
+  /* Catégories */
+  .categories {
+    margin: 70px 0;
+  }
+  
+  .col-3 {
+    flex-basis: 30%;
+    min-width: 250px;
+    margin-bottom: 30px;
+  }
+  
+  .col-3 img {
+    width: 100%;
+  }
+  
+  .small-container {
+    max-width: 1080px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+  
+  /* Footer */
+  .footer {
+    background: #000;
+    color: #8a8a8a;
+    font-size: 14px;
+    padding: 60px 0 20px;
+  }
+  
+  .footer p {
+    color: #8a8a8a;
+  }
+  
+  .footer h3 {
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  
+  .footer-col-1, .footer-col-2, .footer-col-3, .footer-col-4 {
+    min-width: 250px;
+    margin-bottom: 20px;
+  }
+  
+  .footer-col-1 {
+    flex-basis: 30%;
+  }
+  
+  .footer-col-2 {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .footer-col-2 img {
+    width: 180px;
+    margin-bottom: 20px;
+  }
+  
+  .footer-col-3, .footer-col-4 {
+    flex-basis: 12%;
+    text-align: center;
+  }
+  
+  ul {
+    list-style-type: none;
+  }
+  
+  .app-logo {
+    margin-top: 20px;
+  }
+  
+  .app-logo img {
+    width: 140px;
+  }
+  
+  .footer hr {
+    border: none;
+    background: #b5b5b5;
+    height: 1px;
+    margin: 20px 0;
+  }
+  
+  .copyright {
+    text-align: center;
+  }
+  
+  /* Responsive */
+  @media only screen and (max-width: 800px) {
+    nav ul {
+      position:absolute ;
+      top: 70px;
+      left: 0;
+      background: #333;
+      width: 100%;
+    }
+  
+    nav ul li {
+      display: block;
+      margin-right: 50px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  
+    nav ul li a {
+      color: #fff;
+    }
+  
+    .menu-icon {
+      display: block;
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .row {
+      text-align: center;
+    }
+  
+    .col-2, .col-3 {
+      flex-basis: 100%;
+    }
+  
+    .footer-col-1, .footer-col-2, .footer-col-3, .footer-col-4 {
+      flex-basis: 100%;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+  }

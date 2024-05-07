@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atelier d'électricité automobile</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,200&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- bootstrap class  -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+<link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="header">
+      <div class="container">
+        <div class="navbar">
+          <div class="logo">
+            <a href="index.html">
+              <img
+                src="./assets/images/logo.png"
+                alt="Logo de l'atelier"
+                width="100px"
+              />
+            </a>
+          </div>
+          <nav>
+            <ul id="menuItems" class="active">
+              <li><a href="index.html">Accueil</a></li>
+              <li><a href="pieces.html">Pièces électriques</a></li>
+              <li><a href="logiciels.html">Logiciels</a></li>
+              <li><a href="reparation.html">Réparation</a></li>
+              <li><a href="about.html">À propos</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+          <a href="panier.html">
+            <img
+              src="./assets/images/panier.png"
+              alt="Panier"
+              width="30px"
+              height="30px"
+            />
+          </a>
+          <img
+            src="./assets/images/menu.png"
+            alt="Menu"
+            width="30px"
+            height="30px"
+            class="menu-icon"
+            onclick="menutoggle()"
+          />
+        </div>
+
+        <div class="row">
+          <div class="col-2">
+            <h1>Votre spécialiste en électricité automobile</h1>
+            <p>
+              Nous proposons des pièces électriques, des logiciels et un service
+              de réparation de qualité supérieure.
+            </p>
+            <a href="pieces.html" class="btn">Découvrir nos pièces &#8594;</a>
+          </div>
+          <div class="col-2">
+            <img src="./assets/images/image1.png" alt="Image de présentation" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- caroucel -->
+    <div
+      id="carouselExampleIndicators"
+      class="carousel slide"
+      data-ride="carousel"
+    >
+      <ol class="carousel-indicators">
+        <li
+          data-target="#carouselExampleIndicators"
+          data-slide-to="0"
+          class="active"
+        ></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            class="d-block w-100"
+            src="./assets/images/carousel/piece.png"
+            alt="First slide"
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            class="d-block w-100"
+            src="./assets/images/carousel/logiciel.jpg"
+            alt="Second slide"
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            class="d-block w-100"
+            src="./assets/images/carousel/reparation.jpg"
+            alt="Third slide"
+          />
+        </div>
+      </div>
+      <a
+        class="carousel-control-prev"
+        href="#carouselExampleIndicators"
+        role="button"
+        data-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a
+        class="carousel-control-next"
+        href="#carouselExampleIndicators"
+        role="button"
+        data-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+
+    <!-- Catégories de produits -->
+    <div class="categories">
+      <div class="small-container">
+        <div class="row">
+          <div class="col-3">
+            <a href="pieces.html">
+              <img
+                src="./assets/images/carousel/piece.png"
+                alt="Pièces électriques"
+              />
+              <h4>Pièces électriques</h4>
+            </a>
+          </div>
+          <div class="col-3">
+            <a href="logiciels.html">
+              <img
+                src="./assets/images/carousel/logiciel.jpg"
+                alt="Logiciels"
+              />
+              <h4>Logiciels</h4>
+            </a>
+          </div>
+          <div class="col-3">
+            <a href="reparation.html">
+              <img src="./assets/images/category-3.jpg" alt="Réparation" />
+              <h4>Réparation</h4>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="footer-col-1">
+            <h3>Téléchargez notre application</h3>
+            <p>
+              Téléchargez notre application pour Android <br />
+              et iOS pour rester informés.
+            </p>
+            <div class="app-logo">
+              <img
+                src="./assets/images/play-store.png"
+                alt="Google Play Store"
+              />
+              <img src="./assets/images/app-store.png" alt="Apple App Store" />
+            </div>
+          </div>
+          <div class="footer-col-2">
+            <img src="./assets/images/logo-white.png" alt="Logo de l'atelier" />
+            <p>
+              Votre partenaire de confiance pour l'électricité automobile depuis
+              20 ans.
+            </p>
+          </div>
+          <div class="footer-col-3">
+            <h3>Liens utiles</h3>
+            <ul>
+              <li><a href="pieces.html">Pièces électriques</a></li>
+              <li><a href="logiciels.html">Logiciels</a></li>
+              <li><a href="reparation.html">Réparation</a></li>
+              <li><a href="about.html">À propos</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col-4">
+            <h3>Suivez-nous</h3>
+            <ul>
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">YouTube</a></li>
+            </ul>
+          </div>
+        </div>
+        <hr />
+        <p class="copyright" id="copyright-text">
+          Copyright &copy; 2023 Atelier d'électricité automobile
+        </p>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./cart.js"></script>
+    <script src="./filter.js"></script>
+    <script src="./toggleMenu.js"></script>
+
+        <!-- Bootstrap JavaScript Bundle (inclut jQuery et Popper.js) -->
+        <script
+        src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"
+      ></script>
+  
+  </body>
+</html>
