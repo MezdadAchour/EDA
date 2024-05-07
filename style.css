@@ -22,10 +22,16 @@
   }
   
   .navbar {
+    backdrop-filter: blur(10px);
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
   }
     
   nav ul {
@@ -46,12 +52,20 @@
   a {
     text-decoration: none;
     color: #333;
+    padding: 5px;
+    border-radius: 5px;
+    transition: 0.5s
   }
   
+  #menuItems a:hover{
+    text-decoration: none;
+    background-color: #ff523b;
+    color: #fff;
+    border-radius: 30px;
+    padding: 15px;
+  }
   /* Styles pour le carrousel */
 .carousel {
-  position:absolute;
-  top: 120px; left: 800px;
   max-width: 500px; 
   margin: 0 auto; /* Centre le carrousel horizontalement */
   border-radius: 20px;
@@ -120,6 +134,26 @@
     margin: auto;
     padding-left: 25px;
     padding-right: 25px;
+  }
+
+  .title {
+    text-align: center;
+    margin: 0 auto 80px;
+    position: relative;
+    line-height: 60px;
+    color: var(--main-text-color);
+  }
+
+  .title::after {
+    content: "";
+    background: #ff523b;
+    width: 80px;
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
   
   /* Footer */
@@ -227,3 +261,82 @@
       margin-bottom: 30px;
     }
   }
+
+
+
+
+
+  .categories {
+    padding: 50px 0;
+  }
+  
+  .small-container {
+    max-width: 1080px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+  
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .col-3 {
+    flex-basis: 30%;
+    min-width: 250px;
+    margin-bottom: 30px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s, transform 0.5s;
+  }
+  
+  .col-3.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .col-3 a {
+    text-decoration: none;
+    color: #555;
+  }
+  
+  .col-3 img {
+    width: 80%;
+    border-radius: 10px;
+    transition: transform 0.5s;
+  }
+  
+  .col-3:hover {
+    background-color: #ff523b;
+    color: #fff;
+    transition: 0.5s;
+  }
+  
+  .col-3:hover img {
+    transform: scale(1.1);
+  }
+  
+  .col-3:hover h4 {
+    color: #fff;
+  }
+  
+  @media (max-width: 800px) {
+    .row {
+      justify-content: center;
+    }
+    .col-3 {
+      margin: 15px;
+    }
+  }
+
+
+
+
+  
