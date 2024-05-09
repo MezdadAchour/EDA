@@ -12,6 +12,7 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <!-- bootstrap class  -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
@@ -21,6 +22,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- Header -->
     <div class="header gradient">
       <div class="container">
         <div class="navbar">
@@ -40,28 +42,40 @@
               <li><a href="logiciels.html">Logiciels</a></li>
               <li><a href="reparation.html">Réparation</a></li>
               <li><a href="about.html">À propos</a></li>
-              <li><a href="contact.html">Contact</a></li>
+              <li><a href="compte.html">Compte</a></li>
             </ul>
           </nav>
-          <a href="panier.html">
-            <img
-              src="./assets/images/panier.png"
-              alt="Panier"
-              width="30px"
-              height="30px"
-            />
-          </a>
-          <img
-            src="./assets/images/menu.png"
-            alt="Menu"
-            width="30px"
-            height="30px"
-            class="menu-icon"
-            onclick="menutoggle()"
-          />
-        </div>
+          <!-- panier -->
+          <div class="cart-icon">
+            <img src="./assets/images/panier.png" alt="Panier" />
+            <span class="cart-count">0</span>
+          </div>
 
-        <div style="height: 150px"></div>
+          <div class="cart-drawer" style="height: 100vh">
+            <div class="cart-header">
+              <h3>Votre panier</h3>
+              <button class="close-cart">×</button>
+            </div>
+            <div class="cart-items">
+              <!-- Les éléments du panier seront ajoutés ici -->
+            </div>
+            <div class="cart-total">
+              <p>Total :</p>
+              <p id="cart-total-price">0 DA</p>
+            </div>
+            <a href="panier.html" class="checkout-btn">Passer commande</a>
+          </div>
+        </div>
+        <img
+          src="./assets/images/menu.png"
+          alt="Menu"
+          width="30px"
+          height="30px"
+          class="menu-icon"
+          onclick="menutoggle()"
+        />
+
+        <div style="height: 100px"></div>
 
         <!-- Liste des pièces -->
         <div class="small-container">
@@ -70,7 +84,7 @@
           </div>
 
           <div class="row">
-            <div class="col-4">
+            <div class="col-4"><a href="./product-details.html">
               <div class="card">
                 <img
                   src="./assets/images/piece/emu1.png"
@@ -90,7 +104,7 @@
                   <p>25 000 DA</p>
                 </div>
               </div>
-            </div>
+            </div></a>
             <div class="col-4">
               <div class="card">
                 <img
@@ -197,8 +211,7 @@
         </div>
       </div>
     </footer>
-
     <!-- Scripts -->
-    <script src="./toggleMenu.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

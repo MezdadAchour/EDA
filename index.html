@@ -50,8 +50,8 @@
             <img src="./assets/images/panier.png" alt="Panier" />
             <span class="cart-count">0</span>
           </div>
-      
-          <div class="cart-drawer">
+
+          <div class="cart-drawer" style="height: 100vh;">
             <div class="cart-header">
               <h3>Votre panier</h3>
               <button class="close-cart">×</button>
@@ -65,19 +65,19 @@
             </div>
             <a href="panier.html" class="checkout-btn">Passer commande</a>
           </div>
-          <img
-            src="./assets/images/menu.png"
-            alt="Menu"
-            width="30px"
-            height="30px"
-            class="menu-icon"
-            onclick="menutoggle()"
-          />
         </div>
+        <img
+          src="./assets/images/menu.png"
+          alt="Menu"
+          width="30px"
+          height="30px"
+          class="menu-icon"
+          onclick="menutoggle()"
+        />
 
         <div style="height: 100px"></div>
 
-        <div class="row">
+        <div class="row" style="height: 60vh">
           <div class="col-2">
             <h1>Votre spécialiste en électricité automobile</h1>
             <p>
@@ -203,7 +203,7 @@
         <h2 class="title">Produits populaires</h2>
       </div>
       <div class="row">
-        <div class="col-4">
+        <div class="col-4"><a href="./product-details.html">
           <div class="card">
             <img
               src="./assets/images/piece/emu1.png"
@@ -223,7 +223,7 @@
               <p>25 000 DA</p>
             </div>
           </div>
-        </div>
+        </div></a>
         <div class="col-4">
           <div class="card">
             <img
@@ -390,7 +390,6 @@
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star"></i>
               </div>
-              <img src="./assets/images/user-1.png" alt="Client 1" />
               <h3>Marc Dupont</h3>
             </div>
           </div>
@@ -410,7 +409,6 @@
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star-half-o"></i>
               </div>
-              <img src="./assets/images/user-2.png" alt="Client 2" />
               <h3>Sophie Legrand</h3>
             </div>
           </div>
@@ -430,7 +428,6 @@
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star"></i>
               </div>
-              <img src="./assets/images/user-3.png" alt="Client 3" />
               <h3>Paul Martin</h3>
             </div>
           </div>
@@ -496,7 +493,7 @@
             </div>
           </div>
           <div class="footer-col-2">
-            <img src="./assets/images/logo-white.png" alt="Logo de l'atelier" />
+            <img src="./assets/images/logo.png" alt="Logo de l'atelier" />
             <p>
               Votre partenaire de confiance pour l'électricité automobile depuis
               20 ans.
@@ -528,14 +525,7 @@
         </p>
       </div>
     </div>
-    <!-- Scripts -->
-    <script src="./cart.js"></script>
-    <script src="./filter.js"></script>
-    <script src="./toggleMenu.js"></script>
-    <script src="aparition.js"></script>
-    <script src="offeranimation.js"></script>
-    <script src="panier.js"></script>
-    <!-- Bootstrap JavaScript Bundle (inclut jQuery et Popper.js) -->
+    <!-- Bootstrap JavaScript Bundle pour caroussel -->
     <script
       src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -546,6 +536,7 @@
       integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
       crossorigin="anonymous"
     ></script>
-
+    <!-- Scripts -->
+    <script src="script.js"></script>
   </body>
 </html>

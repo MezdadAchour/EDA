@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- Header -->
     <div class="header gradient">
       <div class="container">
         <div class="navbar">
@@ -41,104 +42,120 @@
               <li><a href="logiciels.html">Logiciels</a></li>
               <li><a href="reparation.html">Réparation</a></li>
               <li><a href="about.html">À propos</a></li>
-              <li><a href="contact.html">Contact</a></li>
+              <li><a href="compte.html">Compte</a></li>
             </ul>
           </nav>
-          <a href="panier.html">
-            <img
-              src="./assets/images/panier.png"
-              alt="Panier"
-              width="30px"
-              height="30px"
-            />
-          </a>
-          <img
-            src="./assets/images/menu.png"
-            alt="Menu"
-            width="30px"
-            height="30px"
-            class="menu-icon"
-            onclick="menutoggle()"
-          />
+          <!-- panier -->
+          <div class="cart-icon">
+            <img src="./assets/images/panier.png" alt="Panier" />
+            <span class="cart-count">0</span>
+          </div>
+
+          <div class="cart-drawer" style="height: 100vh">
+            <div class="cart-header">
+              <h3>Votre panier</h3>
+              <button class="close-cart">×</button>
+            </div>
+            <div class="cart-items">
+              <!-- Les éléments du panier seront ajoutés ici -->
+            </div>
+            <div class="cart-total">
+              <p>Total :</p>
+              <p id="cart-total-price">0 DA</p>
+            </div>
+            <a href="panier.html" class="checkout-btn">Passer commande</a>
+          </div>
         </div>
+        <img
+          src="./assets/images/menu.png"
+          alt="Menu"
+          width="30px"
+          height="30px"
+          class="menu-icon"
+          onclick="menutoggle()"
+        />
 
         <div style="height: 100px"></div>
+      </div>
     </div>
-  </div>
 
-  <div class="small-container cart-page">
-    <table>
-      <tr>
-        <th>Produit</th>
-        <th>Quantité</th>
-        <th>Sous-total</th>
-      </tr>
-      <tr>
-        <td>
-          <div class="cart-info">
-            <img src="./assets/images/piece/emu1.jpg" alt="">
-            <div>
-              <p>EMU-pro 8</p>
-              <small>Prix : 25 000 DA</small>
-              <br>
-              <a href="#" onclick="removeItem(this)">Supprimer</a>
-            </div>
-          </div>
-        </td>
-        <td><input type="number" value="1" min="1" onchange="updateTotal()"></td>
-        <td>25 000 DA</td>
-      </tr>
-    </table>
-
-    <div class="total-price">
+    <div class="small-container cart-page">
       <table>
         <tr>
-          <td>Total</td>
-          <td id="total-price">25 000 DA</td>
+          <th>Produit</th>
+          <th>Quantité</th>
+          <th>Sous-total</th>
+        </tr>
+        <tr>
+          <td>
+            <div class="cart-info">
+              <img src="./assets/images/piece/emu1.png" alt="" />
+              <div>
+                <p>EMU-pro 8</p>
+                <small>Prix : 25 000 DA</small>
+                <br />
+                <a href="#" onclick="removeItem(this)">Supprimer</a>
+              </div>
+            </div>
+          </td>
+          <td>
+            <input type="number" value="1" min="1" onchange="updateTotal()" />
+          </td>
+          <td>25 000 DA</td>
         </tr>
       </table>
+
+      <div class="total-price">
+        <table>
+          <tr>
+            <td>Total</td>
+            <td id="total-price">25 000 DA</td>
+          </tr>
+        </table>
+      </div>
+      <button id="passer-commande" onclick="passerCommande()">
+        Passer commande
+      </button>
     </div>
-    <button id="passer-commande" onclick="passerCommande()">Passer commande</button>
-  </div>
 
-  <script>
-    let items = [
-      {
-        name: 'EMU-pro 8',
-        price: 25000,
-        quantity: 1,
-        image: './assets/images/piece/emu1.jpg'
+    <script>
+      let items = [
+        {
+          name: "EMU-pro 8",
+          price: 25000,
+          quantity: 1,
+          image: "./assets/images/piece/emu1.png",
+        },
+      ];
+
+      function updateTotal() {
+        let total = 0;
+        const quantities = document.querySelectorAll('input[type="number"]');
+        quantities.forEach((quantity, index) => {
+          total += items[index].price * quantity.value;
+        });
+        document.getElementById("total-price").textContent = `${total} DA`;
       }
-    ];
 
-    function updateTotal() {
-      let total = 0;
-      const quantities = document.querySelectorAll('input[type="number"]');
-      quantities.forEach((quantity, index) => {
-        total += items[index].price * quantity.value;
-      });
-      document.getElementById('total-price').textContent = `${total} DA`;
-    }
+      function removeItem(button) {
+        const row = button.parentNode.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+        updateTotal();
+      }
 
-    function removeItem(button) {
-      const row = button.parentNode.parentNode.parentNode;
-      row.parentNode.removeChild(row);
+      function passerCommande() {
+        const passerCommandeButton = document.getElementById("passer-commande");
+        passerCommandeButton.textContent = "Succès";
+        passerCommandeButton.style.backgroundColor = "#8BC34A";
+        passerCommandeButton.disabled = true;
+        setTimeout(() => {
+          passerCommandeButton.textContent = "Passer commande";
+          passerCommandeButton.style.backgroundColor = "#ff523b";
+          passerCommandeButton.disabled = false;
+        }, 3000);
+      }
+
       updateTotal();
-    }
-
-    function passerCommande() {
-      const passerCommandeButton = document.getElementById('passer-commande');
-      passerCommandeButton.textContent = 'Succès';
-      passerCommandeButton.style.backgroundColor = '#8BC34A';
-      passerCommandeButton.disabled = true;
-      setTimeout(() => {
-        passerCommandeButton.textContent = 'Passer commande';
-      passerCommandeButton.style.backgroundColor = '#ff523b';
-        passerCommandeButton.disabled = false;
-      }, 3000);
-    }
-
-    updateTotal();
-  </script>
-</body>
+    </script>
+  </body>
 </html>

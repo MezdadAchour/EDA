@@ -23,7 +23,7 @@
   </head>
   <body>
     <!-- Header -->
-    <div class="header">
+    <div class="header gradient">
       <div class="container">
         <div class="navbar">
           <div class="logo">
@@ -42,26 +42,38 @@
               <li><a href="logiciels.html">Logiciels</a></li>
               <li><a href="reparation.html">Réparation</a></li>
               <li><a href="about.html">À propos</a></li>
-              <li><a href="contact.html">Contact</a></li>
+              <li><a href="compte.html">Compte</a></li>
             </ul>
           </nav>
-          <a href="panier.html">
-            <img
-              src="./assets/images/panier.png"
-              alt="Panier"
-              width="30px"
-              height="30px"
-            />
-          </a>
-          <img
-            src="./assets/images/menu.png"
-            alt="Menu"
-            width="30px"
-            height="30px"
-            class="menu-icon"
-            onclick="menutoggle()"
-          />
+          <!-- panier -->
+          <div class="cart-icon">
+            <img src="./assets/images/panier.png" alt="Panier" />
+            <span class="cart-count">0</span>
+          </div>
+
+          <div class="cart-drawer" style="height: 100vh">
+            <div class="cart-header">
+              <h3>Votre panier</h3>
+              <button class="close-cart">×</button>
+            </div>
+            <div class="cart-items">
+              <!-- Les éléments du panier seront ajoutés ici -->
+            </div>
+            <div class="cart-total">
+              <p>Total :</p>
+              <p id="cart-total-price">0 DA</p>
+            </div>
+            <a href="panier.html" class="checkout-btn">Passer commande</a>
+          </div>
         </div>
+        <img
+          src="./assets/images/menu.png"
+          alt="Menu"
+          width="30px"
+          height="30px"
+          class="menu-icon"
+          onclick="menutoggle()"
+        />
 
         <div style="height: 100px"></div>
       </div>
@@ -148,11 +160,7 @@
         </div>
       </div>
     </div>
-
-    <!-- Footer -->
-    <!-- ... -->
-
     <!-- Scripts -->
-    <script src="./toggleMenu.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
