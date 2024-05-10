@@ -53,7 +53,7 @@
                   <label for="adresse">Adresse</label>
                   <textarea id="adresse" name="adresse" rows="3" required></textarea>
                 </div>
-                <button type="submit" class="order-btn">Passer commande</button>
+                <button type="submit" id="passer-commande">Passer commande</button>
               </form>
             </div>
           </div>
@@ -125,6 +125,18 @@
         const row = button.parentNode.parentNode.parentNode;
         row.parentNode.removeChild(row);
         updateTotal();
+      }
+
+      function passerCommande() {
+        const passerCommandeButton = document.getElementById("passer-commande");
+        passerCommandeButton.textContent = "Succès";
+        passerCommandeButton.style.backgroundColor = "#8BC34A";
+        passerCommandeButton.disabled = true;
+        setTimeout(() => {
+          passerCommandeButton.textContent = "Passer commande";
+          passerCommandeButton.style.backgroundColor = "#ff523b";
+          passerCommandeButton.disabled = false;
+        }, 3000);
       }
 
       updateTotal();
