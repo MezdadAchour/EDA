@@ -235,6 +235,10 @@ a:hover{
   color: #333;
 }
 
+#emu:hover{
+  color: #000;
+}
+
 /* ===== CARROUSEL ===== */
 .carousel {
   max-width: 500px;
@@ -384,12 +388,14 @@ ul {
   margin-bottom: 30px;
   overflow: hidden;
   border-radius: 10px;
+  width: 40vh;
 }
 
 .car-image img {
   transition: transform 0.5s ease;
   width: 100%;
   height: auto;
+  border-radius: 10px;
 }
 
 .car-image img:hover {
@@ -708,7 +714,7 @@ th:last-child {
   padding: 40px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
+  max-width: 1000px;
   width: 100%;
   color:#333;
 }
@@ -870,4 +876,79 @@ th:last-child {
   text-align: center;
   text-decoration: none;
   border-radius: 5px;
+}
+
+/* Styles pour la page panier */
+.cart-page {
+  margin: 80px auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cart-info {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+th {
+  text-align: left;
+  padding: 5px;
+  color: #fff;
+  background: #ff523b;
+  font-weight: normal;
+}
+
+td {
+  padding: 10px 5px;
+}
+
+td input {
+  width: 40px;
+  height: 30px;
+  padding: 5px;
+}
+
+td a {
+  color: #ff523b;
+  font-size: 12px;
+}
+
+td img {
+  width: 80px;
+  height: 80px;
+  margin-right: 10px;
+}
+
+.total-price {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.total-price table {
+  border-top: 3px solid #ff523b;
+  width: 100%;
+  max-width: 400px;
+}
+
+td:last-child {
+  text-align: right;
+}
+
+th:last-child {
+  text-align: right;
+}
+
+.order-btn {
+  display: inline-block;
+  background: #ff523b;
+  color: #fff;
+  padding: 8px 30px;
+  margin: 30px 0;
+  border-radius: 30px;
+  transition: 0.5s;
+  border: none;
+  cursor: pointer;
 }

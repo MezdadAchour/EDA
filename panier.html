@@ -24,99 +24,83 @@
   <body>
     <!-- Header -->
     <div class="header gradient">
-      <div class="container">
-        <div class="navbar">
-          <div class="logo">
-            <a href="index.html">
-              <img
-                src="./assets/images/logo.png"
-                alt="Logo de l'atelier"
-                width="100px"
-              />
-            </a>
-          </div>
-          <nav>
-            <ul id="menuItems" class="active">
-              <li><a href="index.html">Accueil</a></li>
-              <li><a href="pieces.html">Pièces électriques</a></li>
-              <li><a href="logiciels.html">Logiciels</a></li>
-              <li><a href="reparation.html">Réparation</a></li>
-              <li><a href="about.html">À propos</a></li>
-              <li><a href="compte.html">Compte</a></li>
-            </ul>
-          </nav>
-          <!-- panier -->
-          <div class="cart-icon">
-            <img src="./assets/images/panier.png" alt="Panier" />
-            <span class="cart-count">0</span>
-          </div>
-
-          <div class="cart-drawer" style="height: 100vh">
-            <div class="cart-header">
-              <h3>Votre panier</h3>
-              <button class="close-cart">×</button>
-            </div>
-            <div class="cart-items">
-              <!-- Les éléments du panier seront ajoutés ici -->
-            </div>
-            <div class="cart-total">
-              <p>Total :</p>
-              <p id="cart-total-price">0 DA</p>
-            </div>
-            <a href="panier.html" class="checkout-btn">Passer commande</a>
-          </div>
-        </div>
-        <img
-          src="./assets/images/menu.png"
-          alt="Menu"
-          width="30px"
-          height="30px"
-          class="menu-icon"
-          onclick="menutoggle()"
-        />
-
-        <div style="height: 100px"></div>
-      </div>
+      <!-- Insérez ici votre code HTML pour le header -->
     </div>
 
-    <div class="small-container cart-page">
-      <table>
-        <tr>
-          <th>Produit</th>
-          <th>Quantité</th>
-          <th>Sous-total</th>
-        </tr>
-        <tr>
-          <td>
-            <div class="cart-info">
-              <img src="./assets/images/piece/emu1.png" alt="" />
-              <div>
-                <p>EMU-pro 8</p>
-                <small>Prix : 25 000 DA</small>
-                <br />
-                <a href="#" onclick="removeItem(this)">Supprimer</a>
+    <div class="login-container">
+      <div class="login-background">
+        <img src="./assets/images/backgroud.jpg" alt="Arrière-plan" />
+      </div>
+      <div class="login-form-container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="login-form">
+              <h2 class="form-title">Coordonnées de livraison</h2>
+              <form>
+                <div class="form-group">
+                  <label for="nom">Nom</label>
+                  <input type="text" id="nom" name="nom" required>
+                </div>
+                <div class="form-group">
+                  <label for="prenom">Prénom</label>
+                  <input type="text" id="prenom" name="prenom" required>
+                </div>
+                <div class="form-group">
+                  <label for="telephone">Téléphone</label>
+                  <input type="tel" id="telephone" name="telephone" required>
+                </div>
+                <div class="form-group">
+                  <label for="adresse">Adresse</label>
+                  <textarea id="adresse" name="adresse" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="order-btn">Passer commande</button>
+              </form>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="login-form">
+              <h2 class="form-title">Votre panier</h2>
+              <table>
+                <tr>
+                  <th>Produit</th>
+                  <th>Quantité</th>
+                  <th>Sous-total</th>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="cart-info">
+                      <img src="./assets/images/piece/emu1.png" alt="" />
+                      <div>
+                        <p>EMU-pro 8</p>
+                        <small>Prix : 25 000 DA</small>
+                        <br />
+                        <a href="#" onclick="removeItem(this)">Supprimer</a>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <input type="number" value="1" min="1" onchange="updateTotal()" />
+                  </td>
+                  <td>25 000 DA</td>
+                </tr>
+              </table>
+
+              <div class="total-price">
+                <table>
+                  <tr>
+                    <td>Total</td>
+                    <td id="total-price">25 000 DA</td>
+                  </tr>
+                </table>
               </div>
             </div>
-          </td>
-          <td>
-            <input type="number" value="1" min="1" onchange="updateTotal()" />
-          </td>
-          <td>25 000 DA</td>
-        </tr>
-      </table>
-
-      <div class="total-price">
-        <table>
-          <tr>
-            <td>Total</td>
-            <td id="total-price">25 000 DA</td>
-          </tr>
-        </table>
+          </div>
+        </div>
       </div>
-      <button id="passer-commande" onclick="passerCommande()">
-        Passer commande
-      </button>
     </div>
+
+    <!-- Footer -->
+    <!-- Insérez ici votre code HTML pour le footer -->
 
     <script>
       let items = [
@@ -141,18 +125,6 @@
         const row = button.parentNode.parentNode.parentNode;
         row.parentNode.removeChild(row);
         updateTotal();
-      }
-
-      function passerCommande() {
-        const passerCommandeButton = document.getElementById("passer-commande");
-        passerCommandeButton.textContent = "Succès";
-        passerCommandeButton.style.backgroundColor = "#8BC34A";
-        passerCommandeButton.disabled = true;
-        setTimeout(() => {
-          passerCommandeButton.textContent = "Passer commande";
-          passerCommandeButton.style.backgroundColor = "#ff523b";
-          passerCommandeButton.disabled = false;
-        }, 3000);
       }
 
       updateTotal();
