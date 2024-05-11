@@ -663,7 +663,6 @@ ul {
   border-radius: 5px;
   font-family: inherit;
 }
-
 .form-footer {
   margin-top: 20px;
 }
@@ -803,7 +802,7 @@ ul {
   border-radius: 5px;
 }
 
-/* Styles pour la page panier 222*/
+/* Styles pour la page panier*/
 .cart-page {
   margin: 80px auto;
 }

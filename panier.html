@@ -12,7 +12,6 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <!-- bootstrap class  -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
@@ -23,73 +22,88 @@
   </head>
   <body>
     <!-- Header -->
-    <div class="header gradient">
-      <!-- Insérez ici votre code HTML pour le header -->
-    </div>
+
+<!-- Header -->
+<div class="header">
+  <div class="container">
+    <nav class="navbar">
+      <a href="index.html" class="navbar-brand">
+        <img src="./assets/images/logo.png" alt="Logo de l'atelier" width="100px">
+      </a>
+      <ul id="menuItems" class="navbar-nav">
+        <li class="nav-item"><a href="index.html" class="nav-link">Accueil</a></li>
+        <li class="nav-item"><a href="pieces.html" class="nav-link">Pièces électriques</a></li>
+        <li class="nav-item"><a href="logiciels.html" class="nav-link">Logiciels</a></li>
+        <li class="nav-item"><a href="reparation.html" class="nav-link">Réparation</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link">À propos</a></li>
+        <li class="nav-item"><a href="compte.html" class="nav-link">Compte</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
 
     <div class="login-container">
       <div class="login-background">
         <img src="./assets/images/backgroud.jpg" alt="Arrière-plan" />
       </div>
-      <div class="login-form-container">
-        <div class="row">
-          <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="login-form-container">
             <div class="login-form">
               <h2 class="form-title">Coordonnées de livraison</h2>
               <form>
                 <div class="form-group">
                   <label for="nom">Nom</label>
-                  <input type="text" id="nom" name="nom" required>
+                  <input type="text" id="nom" name="nom" required />
                 </div>
                 <div class="form-group">
                   <label for="prenom">Prénom</label>
-                  <input type="text" id="prenom" name="prenom" required>
+                  <input type="text" id="prenom" name="prenom" required />
                 </div>
                 <div class="form-group">
                   <label for="telephone">Téléphone</label>
-                  <input type="tel" id="telephone" name="telephone" required>
+                  <input type="tel" id="telephone" name="telephone" required />
                 </div>
                 <div class="form-group">
                   <label for="adresse">Adresse</label>
-                  <textarea id="adresse" name="adresse" rows="3" required></textarea>
+                  <textarea
+                    id="adresse"
+                    name="adresse"
+                    rows="3"
+                    required
+                  ></textarea>
                 </div>
-                <button type="submit" id="passer-commande">Passer commande</button>
+                <button
+                  type="button"
+                  id="passer-commande"
+                  onclick="passerCommande()"
+                >
+                  Passer commande
+                </button>
               </form>
             </div>
           </div>
-          <div class="col-md-6">
+        </div>
+        <div class="col-md-6">
+          <div class="login-form-container">
             <div class="login-form">
               <h2 class="form-title">Votre panier</h2>
               <table>
-                <tr>
-                  <th>Produit</th>
-                  <th>Quantité</th>
-                  <th>Sous-total</th>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="cart-info">
-                      <img src="./assets/images/piece/emu1.png" alt="" />
-                      <div>
-                        <p>EMU-pro 8</p>
-                        <small>Prix : 25 000 DA</small>
-                        <br />
-                        <a href="#" onclick="removeItem(this)">Supprimer</a>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    <input type="number" value="1" min="1" onchange="updateTotal()" />
-                  </td>
-                  <td>25 000 DA</td>
-                </tr>
+                <thead>
+                  <tr>
+                    <th>Produit</th>
+                    <th>Quantité</th>
+                    <th>Sous-total</th>
+                  </tr>
+                </thead>
+                <tbody id="cart-items"></tbody>
               </table>
 
               <div class="total-price">
                 <table>
                   <tr>
                     <td>Total</td>
-                    <td id="total-price">25 000 DA</td>
+                    <td id="total-price">0 DA</td>
                   </tr>
                 </table>
               </div>
@@ -114,15 +128,22 @@
 
       function updateTotal() {
         let total = 0;
-        const quantities = document.querySelectorAll('input[type="number"]');
-        quantities.forEach((quantity, index) => {
-          total += items[index].price * quantity.value;
+        const cartItems = document.querySelectorAll("#cart-items tr");
+        cartItems.forEach((item) => {
+          const quantityInput = item.querySelector('input[type="number"]');
+          const itemQuantity = quantityInput
+            ? parseInt(quantityInput.value)
+            : 1;
+          const itemPrice = parseInt(
+            item.querySelector("td:last-child").textContent
+          );
+          total += itemPrice * itemQuantity;
         });
         document.getElementById("total-price").textContent = `${total} DA`;
       }
 
       function removeItem(button) {
-        const row = button.parentNode.parentNode.parentNode;
+        const row = button.parentNode.parentNode;
         row.parentNode.removeChild(row);
         updateTotal();
       }
@@ -139,7 +160,38 @@
         }, 3000);
       }
 
-      updateTotal();
+      function renderCartItems() {
+        const cartItemsContainer = document.getElementById("cart-items");
+        cartItemsContainer.innerHTML = "";
+
+        items.forEach((item) => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>
+              <div class="cart-info">
+                <img src="${item.image}" alt="${item.name}" />
+                <div>
+                  <p>${item.name}</p>
+                  <small>Prix : ${item.price} DA</small>
+                  <br />
+                  <a href="#" onclick="removeItem(this)">Supprimer</a>
+                </div>
+              </div>
+            </td>
+            <td>
+              <input type="number" value="${
+                item.quantity
+              }" min="1" onchange="updateTotal()" />
+            </td>
+            <td>${item.price * item.quantity} DA</td>
+          `;
+          cartItemsContainer.appendChild(row);
+        });
+
+        updateTotal();
+      }
+
+      renderCartItems();
     </script>
   </body>
 </html>
