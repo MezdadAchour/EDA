@@ -141,15 +141,10 @@
           </p>
           <label for="quantity">Quantité:</label>
           <input type="number" id="quantity" value="1" min="1" />
-          <button class="btn" onclick="addToCart()">Ajouter au panier</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Scripts -->
+          <button class="btn" onclick="window.addToCart({id: 1, name: 'EMU-pro 8', price: 25000, image: './assets/images/piece/emu1.png'}, parseInt(document.getElementById('quantity').value))">Ajouter au panier</button>    <!-- Scripts -->
     <script src="script.js"></script>
 
-    <!-- Scripts -->
+    <!-- Scripts du caroussel-->
     <script>
       // Sélectionner les éléments nécessaires
       const productImg = document.getElementById("productImg");
