@@ -42,23 +42,25 @@
           <div class="cart-icon">
             <img src="./assets/images/panier.png" alt="Panier" />
             <span class="cart-count">0</span>
+            <div class="cart-drawer">
+              <div class="cart-header">
+                <h3>Votre panier</h3>
+              </div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Article</th>
+                    <th>Prix</th>
+                    <th>Quantité</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody id="cart-tablebody"></tbody>
+              </table>
+              <p>total : <span id="subtotal">0</span> DA</p>
+              <button id="confirm-command" class="btn2">Passer la commande</button>
+            </div>
           </div>
-
-          <div class="cart-drawer" style="height: 100vh">
-            <div class="cart-header">
-              <h3>Votre panier</h3>
-              <button class="close-cart">×</button>
-            </div>
-            <div class="cart-items">
-              <!-- Les éléments du panier seront ajoutés ici -->
-            </div>
-            <div class="cart-total">
-              <p>Total :</p>
-              <p id="cart-total-price">0 DA</p>
-            </div>
-            <a href="panier.html" class="checkout-btn">Passer commande</a>
-          </div>
-        </div>
         <img
           src="./assets/images/menu.png"
           alt="Menu"

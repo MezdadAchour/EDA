@@ -12,18 +12,17 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <!-- bootstrap class  -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <!-- Header -->
-    <div class="header gradient">
+    <header class="header gradient">
       <div class="container">
         <div class="navbar">
           <div class="logo">
@@ -49,102 +48,119 @@
           <div class="cart-icon">
             <img src="./assets/images/panier.png" alt="Panier" />
             <span class="cart-count">0</span>
+            <div class="cart-drawer">
+              <div class="cart-header">
+                <h3>Votre panier</h3>
+              </div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Article</th>
+                    <th>Prix</th>
+                    <th>Quantité</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody id="cart-tablebody"></tbody>
+              </table>
+              <p>total : <span id="subtotal">0</span> DA</p>
+              <button id="confirm-command" class="btn2">
+                Passer la commande
+              </button>
+            </div>
           </div>
-
-          <div class="cart-drawer" style="height: 100vh">
-            <div class="cart-header">
-              <h3>Votre panier</h3>
-              <button class="close-cart">×</button>
-            </div>
-            <div class="cart-items">
-              <!-- Les éléments du panier seront ajoutés ici -->
-            </div>
-            <div class="cart-total">
-              <p>Total :</p>
-              <p id="cart-total-price">0 DA</p>
-            </div>
-            <a href="panier.html" class="checkout-btn">Passer commande</a>
-          </div>
+          <img
+            src="./assets/images/menu.png"
+            alt="Menu"
+            width="30px"
+            height="30px"
+            class="menu-icon"
+            onclick="menutoggle()"
+          />
         </div>
-        <img
-          src="./assets/images/menu.png"
-          alt="Menu"
-          width="30px"
-          height="30px"
-          class="menu-icon"
-          onclick="menutoggle()"
-        />
-
-        <div style="height: 100px"></div>
       </div>
-    </div>
+    </header>
 
-    <div class="small-container single-product">
-      <div class="row">
-        <div class="col-2">
-          <div id="productImg">
-            <img
-              src="./assets/images/piece/emu1.png"
-              alt="EMU-pro 8"
-              width="100%"
-              id="productImage"
-            />
+    <main>
+      <div class="small-container single-product" style="margin-top: 120px">
+        <div class="row">
+          <div class="col-2">
+            <div id="productImg">
+              <img
+                src="./assets/images/piece/emu1.png"
+                alt="EMU-pro 8"
+                width="100%"
+                id="productImage"
+              />
+            </div>
+            <div class="small-img-row">
+              <div class="small-img-col">
+                <img
+                  src="./assets/images/produits/EMU-pro 8/emu1.webp"
+                  alt="EMU-pro 8"
+                  class="small-img"
+                />
+              </div>
+              <div class="small-img-col">
+                <img
+                  src="./assets/images/produits/EMU-pro 8/emu2.webp"
+                  alt="EMU-pro 8"
+                  class="small-img"
+                />
+              </div>
+              <div class="small-img-col">
+                <img
+                  src="./assets/images/produits/EMU-pro 8/emu3.webp"
+                  alt="EMU-pro 8"
+                  class="small-img"
+                />
+              </div>
+              <div class="small-img-col">
+                <img
+                  src="./assets/images/produits/EMU-pro 8/emu4.webp"
+                  alt="EMU-pro 8"
+                  class="small-img"
+                />
+              </div>
+            </div>
           </div>
-          <div class="small-img-row">
-            <div class="small-img-col">
-              <img
-                src="./assets/images/produits/EMU-pro 8/emu1.webp"
-                alt="EMU-pro 8"
-                class="small-img"
-              />
+          <div class="col-2">
+            <h1>EMU-pro 8</h1>
+            <div class="rating">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-o"></i>
             </div>
-            <div class="small-img-col">
-              <img
-                src="./assets/images/produits/EMU-pro 8/emu2.webp"
-                alt="EMU-pro 8"
-                class="small-img"
-              />
-            </div>
-            <div class="small-img-col">
-              <img
-                src="./assets/images/produits/EMU-pro 8/emu3.webp"
-                alt="EMU-pro 8"
-                class="small-img"
-              />
-            </div>
-            <div class="small-img-col">
-              <img
-                src="./assets/images/produits/EMU-pro 8/emu4.webp"
-                alt="EMU-pro 8"
-                class="small-img"
-              />
-            </div>
+            <p>25 000 DA</p>
+            <h3>Détails du produit</h3>
+            <p>
+              L'EMU-pro 8 est un outil de diagnostic automobile professionnel
+              polyvalent et puissant pour les véhicules légers et lourds. Conçu
+              pour simplifier le travail des garagistes, il offre une multitude
+              de fonctionnalités avancées pour la lecture et l'effacement des
+              codes d'erreur, la reprogrammation des calculateurs et bien plus
+              encore.
+            </p>
+            <label for="qty">Quantité: </label>
+            <input type="number" id="qty" name="qty" value="1" min="1" />
+            <button
+              id="add-to-cart"
+              data-id="432"
+              data-name="EMU-pro 8"
+              data-price="25000"
+              class="btn"
+            >
+              Ajouter au panier
+            </button>
+            <div id="cart-items" hidden></div>
           </div>
         </div>
-        <div class="col-2">
-          <h1>EMU-pro 8</h1>
-          <div class="rating">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star-o"></i>
-          </div>
-          <p>25 000 DA</p>
-          <h3>Détails du produit</h3>
-          <p>
-            L'EMU-pro 8 est un outil de diagnostic automobile professionnel
-            polyvalent et puissant pour les véhicules légers et lourds. Conçu
-            pour simplifier le travail des garagistes, il offre une multitude de
-            fonctionnalités avancées pour la lecture et l'effacement des codes
-            d'erreur, la reprogrammation des calculateurs et bien plus encore.
-          </p>
-          <label for="quantity">Quantité:</label>
-          <input type="number" id="quantity" value="1" min="1" />
-          <button class="btn" onclick="window.addToCart({id: 1, name: 'EMU-pro 8', price: 25000, image: './assets/images/piece/emu1.png'}, parseInt(document.getElementById('quantity').value))">Ajouter au panier</button>    <!-- Scripts -->
-    <script src="script.js"></script>
+      </div>
+    </main>
 
-    <!-- Scripts du caroussel-->
+    <!-- Scripts du carrousel -->
     <script>
       // Sélectionner les éléments nécessaires
       const productImg = document.getElementById("productImg");
@@ -159,5 +175,8 @@
         });
       }
     </script>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
   </body>
 </html>
