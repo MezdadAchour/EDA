@@ -3,26 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Atelier d'électricité automobile</title>
+    <title>Atelier d'électricité automobile - Réparation</title>
+    <!-- Lien vers la police de caractères Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,200&display=swap"
       rel="stylesheet"
     />
+    <!-- Lien vers les icônes Font Awesome -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <!-- bootstrap class  -->
+    <!-- Lien vers le fichier CSS de Bootstrap -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
+    <!-- Lien vers le fichier CSS personnalisé -->
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
-    <!-- Header -->
+  <body class="gradient">
+    <!-- En-tête -->
     <div class="header gradient">
       <div class="container">
         <div class="navbar">
@@ -46,7 +49,7 @@
             </ul>
           </nav>
 
-          <!-- panier -->
+          <!-- Panier -->
           <div class="cart-icon">
             <img src="./assets/images/panier.png" alt="Panier" />
             <span class="cart-count">0</span>
@@ -66,21 +69,24 @@
                 <tbody id="cart-tablebody"></tbody>
               </table>
               <p>total : <span id="subtotal">0</span> DA</p>
-              <button id="confirm-command" class="btn2">Passer la commande</button>
+              <button id="confirm-command" class="btn2">
+                Passer la commande
+              </button>
             </div>
           </div>
-        <img
-          src="./assets/images/menu.png"
-          alt="Menu"
-          width="30px"
-          height="30px"
-          class="menu-icon"
-          onclick="menutoggle()"
-        />
-
-        <div style="height: 100px"></div>
+          <img
+            src="./assets/images/menu.png"
+            alt="Menu"
+            width="30px"
+            height="30px"
+            class="menu-icon"
+            onclick="menutoggle()"
+          />
+        </div>
       </div>
     </div>
+    <div style="height: 100px"></div>
+
     <!-- Contenu de la page -->
     <div class="container">
       <div class="row">
@@ -95,6 +101,7 @@
           <div class="form-container">
             <h2 class="form-title">Prendre rendez-vous pour une réparation</h2>
             <form action="#" method="post">
+              <!-- Champ pour le nom -->
               <div class="form-group">
                 <input
                   type="text"
@@ -104,6 +111,7 @@
                   required
                 />
               </div>
+              <!-- Champ pour le prénom -->
               <div class="form-group">
                 <input
                   type="text"
@@ -113,6 +121,7 @@
                   required
                 />
               </div>
+              <!-- Champ pour le numéro de téléphone -->
               <div class="form-group">
                 <input
                   type="tel"
@@ -122,6 +131,7 @@
                   required
                 />
               </div>
+              <!-- Champ pour la marque du véhicule -->
               <div class="form-group">
                 <input
                   type="text"
@@ -131,6 +141,7 @@
                   required
                 />
               </div>
+              <!-- Champ pour le modèle du véhicule -->
               <div class="form-group">
                 <input
                   type="text"
@@ -140,6 +151,7 @@
                   required
                 />
               </div>
+              <!-- Champ pour la description de la panne -->
               <div class="form-group">
                 <textarea
                   id="description"
@@ -149,21 +161,25 @@
                   required
                 ></textarea>
               </div>
+              <!-- Champ pour la date -->
               <div class="form-group">
                 <label for="date">Date :</label>
                 <input type="date" id="date" name="date" required />
               </div>
+              <!-- Champ pour l'heure -->
               <div class="form-group">
                 <label for="heure">Heure :</label>
                 <input type="time" id="heure" name="heure" required />
               </div>
+              <!-- Bouton d'envoi du formulaire -->
               <button type="submit" class="btn2">Envoyer la demande</button>
             </form>
           </div>
         </div>
       </div>
     </div>
-    <!-- Scripts -->
+
+    <!-- Lien vers le fichier JavaScript -->
     <script src="script.js"></script>
   </body>
 </html>

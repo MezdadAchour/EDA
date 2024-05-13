@@ -3,25 +3,28 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif; /* Police de caractères par défaut */
 }
 
 body {
-  background-color: #f5f5f5;
+  background-color: #f5f5f5; /* Couleur de fond du corps */
 }
 
 /* ===== HEADER ===== */
 .gradient {
-  background: radial-gradient(#fff, #ccc);
+  background: radial-gradient(
+    #fff,
+    #ccc
+  ); /* Dégradé radial pour l'arrière-plan */
 }
 
 .container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 auto; /* Centrer le conteneur horizontalement */
 }
 
 .navbar {
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px); /* Effet de flou sur l'arrière-plan */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -30,17 +33,17 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 1000; /* Assurez-vous que la barre de navigation est au-dessus des autres éléments */
 }
 
 nav ul {
   max-height: 200px;
-  transition: max-height 0.5s ease-out;
+  transition: max-height 0.5s ease-out; /* Transition pour l'animation du menu */
 }
 
 .menu-icon {
   display: none;
-  cursor: pointer;
+  cursor: pointer; /* Afficher un curseur de pointeur sur l'icône du menu */
 }
 
 nav ul li {
@@ -53,17 +56,17 @@ a {
   color: #333;
   padding: 5px;
   border-radius: 5px;
-  transition: 0.5s;
+  transition: 0.5s; /* Transition pour l'effet de survol des liens */
 }
 
 a:hover {
   text-decoration: none;
-  color: #f5f5f5;
+  color: #f5f5f5; /* Couleur du texte au survol */
 }
 
 #menuItems a:hover {
   text-decoration: none;
-  background-color: #ff523b;
+  background-color: #ff523b; /* Couleur de fond au survol */
   color: #fff;
   border-radius: 30px;
   padding: 15px;
@@ -78,8 +81,9 @@ a:hover {
   font-size: 12px;
   position: relative;
   top: -12px;
-  right: 8px;
+  right: 8px; /* Position du badge "nouveau" */
 }
+
 /* ===== LAYOUT ===== */
 .row {
   display: flex;
@@ -118,13 +122,13 @@ a:hover {
   padding: 8px 30px;
   margin: 30px 0;
   border-radius: 30px;
-  transition: 0.5s;
+  transition: 0.5s; /* Transition pour l'effet de survol des boutons */
   border: #333 solid 1px;
 }
 
 .btn:hover {
-  background: #ff523b;
-  transform: scale(1.1);
+  background: #ff523b; /* Couleur de fond au survol */
+  transform: scale(1.1); /* Effet d'agrandissement lors du survol */
   border: none;
   color: #f2f2f2;
 }
@@ -133,7 +137,7 @@ a:hover {
   border: none;
   background: transparent;
   padding: 2px;
-  cursor: pointer;
+  cursor: pointer; /* Afficher un curseur de pointeur sur l'icône de suppression */
 }
 
 /* ===== CATÉGORIES ===== */
@@ -166,7 +170,7 @@ a:hover {
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%); /* Centrer la ligne horizontale */
 }
 
 .col-3 {
@@ -177,14 +181,14 @@ a:hover {
   border-radius: 10px;
   padding: 20px;
   text-align: center;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.5s, transform 0.5s;
+  opacity: 0; /* Elément initialement transparent */
+  transform: translateY(50px); /* Elément initialement déplacé vers le bas */
+  transition: opacity 0.5s, transform 0.5s; /* Transition animée */
 }
 
 .col-3.show {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1; /* Elément complètement visible */
+  transform: translateY(0); /* Elément à sa position initiale */
 }
 
 .col-3 a {
@@ -195,7 +199,7 @@ a:hover {
 .col-3 img {
   width: 80%;
   border-radius: 10px;
-  transition: transform 0.5s;
+  transition: transform 0.5s; /* Transition animée pour l'image */
 }
 
 .col-3:hover {
@@ -205,7 +209,7 @@ a:hover {
 }
 
 .col-3:hover img {
-  transform: scale(1.1);
+  transform: scale(1.1); /* Effet d'agrandissement de l'image lors du survol */
 }
 
 .col-3:hover h4 {
@@ -220,12 +224,14 @@ a:hover {
   overflow: hidden;
   transition: all 0.3s ease;
   margin-bottom: 100px;
-  cursor: pointer;
+  cursor: pointer; /* Afficher un curseur de pointeur sur les cartes de produits */
 }
 
 .card:hover {
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Effet d'ombre plus prononcé lors du survol */
+  transform: translateY(
+    -5px
+  ); /* Effet de léger déplacement vers le haut lors du survol */
 }
 
 .card img {
@@ -243,7 +249,7 @@ a:hover {
 }
 
 .card-body .rating {
-  color: #ffc107;
+  color: #ffc107; /* Couleur des étoiles de notation */
   margin-bottom: 10px;
 }
 
@@ -254,13 +260,13 @@ a:hover {
 }
 
 #emu:hover {
-  color: #000;
+  color: #000; /* Couleur du texte au survol pour l'élément avec l'id "emu" */
 }
 
 /* ===== CARROUSEL ===== */
 .carousel {
   max-width: 500px;
-  margin: 0 auto;
+  margin: 0 auto; /* Centrer le carrousel horizontalement */
   border-radius: 20px;
 }
 
@@ -316,7 +322,7 @@ a:hover {
 }
 
 ul {
-  list-style-type: none;
+  list-style-type: none; /* Supprimer les puces des listes */
 }
 
 .app-logo {
@@ -338,16 +344,46 @@ ul {
   text-align: center;
 }
 
+.menu-icon {
+  display: none; /* Afficher l'icône de menu sur les petits écrans */
+  cursor: pointer; /* Afficher un curseur de pointeur sur l'icône de menu */
+}
+
 /* ===== RESPONSIVE ===== */
 @media only screen and (max-width: 800px) {
-  nav ul {
+  nav {
     position: absolute;
-    top: 70px;
+    top: 90px;
     left: 0;
     background: #333;
     width: 100%;
+    transition: all 0.5s ease-out; /* Animation lors de l'ouverture/fermeture du menu */
+  }
+  .carousel{
+    display: none;
+  }
+  #menuItems a:hover {
+    text-decoration: none;
+    background-color: transparent; /* Couleur de fond au survol */
+    color: #fff;
+    border-radius: 30px;
+    padding: 15px;
+  }
+  .menu-icon {
+    display: inline-block; /* Afficher l'icône de menu sur les petits écrans */
+    position: absolute;
+    top: 50px;
+    left: 5px;
+    z-index: 10;
+    cursor: pointer; /* Afficher un curseur de pointeur sur l'icône de menu */
+  }
+  #menuItems {
+    display: none; /* Masqué */
   }
 
+  #menuItems.active {
+    display: inline-block; /* Affiché lorsque la classe "active" est présente */
+  }
   nav ul li {
     display: block;
     margin-right: 50px;
@@ -356,19 +392,33 @@ ul {
   }
 
   nav ul li a {
-    color: #fff;
-  }
-
-  .menu-icon {
-    display: block;
+    color: #fff; /* Couleur des liens dans le menu pour les petits écrans */
   }
 
   .row {
     justify-content: center;
   }
 
+  .col-2,
   .col-3 {
-    margin: 15px;
+    flex-basis: 100%; /* Faire en sorte que les colonnes occupent toute la largeur sur les petits écrans */
+    max-width: none; /* Annuler la largeur maximale définie pour les colonnes */
+  }
+
+  .footer-col-1,
+  .footer-col-2,
+  .footer-col-3,
+  .footer-col-4 {
+    flex-basis: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .cart-drawer {
+    width: 100%; /* Faire en sorte que le tiroir du panier occupe toute la largeur sur les petits écrans */
+    max-width: none; /* Annuler la largeur maximale définie pour le tiroir du panier */
+    left: 0; /* Aligner le tiroir du panier à gauche sur les petits écrans */
+    border-radius: 0; /* Supprimer les coins arrondis sur les petits écrans */
   }
 }
 
@@ -392,11 +442,6 @@ ul {
   }
 }
 
-/* ===== MENU TOGGLE ===== */
-.menuItems.active {
-  max-height: 300px; /* Définit la hauteur maximale du menu lorsqu'il est ouvert */
-}
-
 /* Section À propos */
 .about-section {
   padding: 80px 0;
@@ -406,7 +451,7 @@ ul {
   margin-bottom: 30px;
   overflow: hidden;
   border-radius: 10px;
-  width: 40vh;
+  width: 40vh; /* Définir la largeur de l'image de voiture en unités de hauteur de viewport */
 }
 
 .car-image img {
@@ -417,11 +462,11 @@ ul {
 }
 
 .car-image img:hover {
-  transform: scale(1.1);
+  transform: scale(1.1); /* Effet d'agrandissement de l'image lors du survol */
 }
 
 .large-image {
-  transform: scale(1.2);
+  transform: scale(1.2); /* Agrandir l'image avec la classe "large-image" */
 }
 
 .about-text {
@@ -446,12 +491,15 @@ ul {
   position: absolute;
   top: -15px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%); /* Centrer la décoration */
 }
 
 /* Styles pour l'offre */
 .offer {
-  background: radial-gradient(#fff, #ffd000);
+  background: radial-gradient(
+    #fff,
+    #ffd000
+  ); /* Dégradé radial pour l'arrière-plan de l'offre */
   margin: 80px 0;
   padding: 30px 0;
 }
@@ -459,11 +507,11 @@ ul {
 .offer-img {
   max-width: 100%;
   padding: 50px;
-  transition: transform 0.5s;
+  transition: transform 0.5s; /* Transition pour l'effet de survol de l'image */
 }
 
 .offer-img:hover {
-  transform: scale(1.1);
+  transform: scale(1.1); /* Effet d'agrandissement de l'image lors du survol */
 }
 
 .offer .col-2 {
@@ -502,11 +550,13 @@ ul {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 30px;
   text-align: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease; /* Transition pour l'effet de survol des cartes */
 }
 
 .testimonial-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(
+    -10px
+  ); /* Effet de déplacement vers le haut lors du survol */
 }
 
 .testimonial-body {
@@ -528,7 +578,7 @@ ul {
 }
 
 .testimonial-card .rating {
-  color: #ffc107;
+  color: #ffc107; /* Couleur des étoiles de notation */
   margin-bottom: 10px;
 }
 
@@ -554,14 +604,16 @@ ul {
 .brand-logo {
   width: 150px;
   height: auto;
-  cursor: pointer;
-  filter: grayscale(100%);
-  transition: 0.3s ease;
+  cursor: pointer; /* Afficher un curseur de pointeur sur les logos de marque */
+  filter: grayscale(100%); /* Appliquer un filtre de niveau de gris */
+  transition: 0.3s ease; /* Transition pour l'effet de survol des logos */
 }
 
 .brand-logo:hover {
-  filter: grayscale(0%);
-  scale: 1.1;
+  filter: grayscale(
+    0%
+  ); /* Supprimer le filtre de niveau de gris lors du survol */
+  scale: 1.1; /* Effet d'agrandissement des logos lors du survol */
 }
 
 .col-5 {
@@ -572,11 +624,11 @@ ul {
 /* Styles pour la page de réparation */
 .repair-image {
   max-width: 100%;
-  border-radius: 250px 50%;
-  transition: 1s;
+  border-radius: 250px 50%; /* Définir une forme de bordure arrondie */
+  transition: 1s; /* Transition pour l'animation de la forme de bordure */
 }
 .repair-image:hover {
-  border-radius: 50% 250px;
+  border-radius: 50% 250px; /* Changer la forme de bordure lors du survol */
 }
 
 .form-container {
@@ -601,7 +653,7 @@ ul {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-family: inherit;
+  font-family: inherit; /* Hériter de la police de caractères du parent */
 }
 
 .form-group label {
@@ -618,12 +670,12 @@ ul {
   color: #fff;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  cursor: pointer; /* Afficher un curseur de pointeur sur le bouton */
+  transition: background-color 0.3s ease; /* Transition pour l'effet de survol du bouton */
 }
 
 .btn2:hover {
-  background-color: #e64a33;
+  background-color: #e64a33; /* Couleur de fond au survol du bouton */
 }
 
 /* Styles pour la page de connexion */
@@ -631,7 +683,7 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100vh; /* Définir la hauteur du conteneur à la hauteur de la fenêtre */
   position: relative;
 }
 
@@ -641,18 +693,18 @@ ul {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: -1; /* Placer l'image d'arrière-plan derrière le contenu */
   overflow: hidden;
 }
 
 .login-background img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* Mettre l'image à l'échelle pour couvrir la zone */
 }
 
 .login-form-container {
-  backdrop-filter: blur(50px);
+  backdrop-filter: blur(50px); /* Appliquer un effet de flou à l'arrière-plan */
   padding: 40px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -678,7 +730,7 @@ ul {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-family: inherit;
+  font-family: inherit; /* Hériter de la police de caractères du parent */
 }
 .form-footer {
   margin-top: 20px;
@@ -694,7 +746,7 @@ ul {
 }
 
 .form-footer a:hover {
-  text-decoration: underline;
+  text-decoration: underline; /* Souligner les liens lors du survol */
 }
 
 /* ===== SINGLE PRODUCT ===== */
@@ -717,13 +769,12 @@ ul {
 
 .small-img-col {
   flex-basis: 24%;
-  cursor: pointer;
+  cursor: pointer; /* Afficher un curseur de pointeur sur les petites images */
 }
 
 #productImage {
   max-width: 100%;
 }
-
 
 /* Styles pour la page panier*/
 .cart-page {
@@ -797,7 +848,7 @@ th:last-child {
   border-radius: 30px;
   transition: 0.5s;
   border: none;
-  cursor: pointer;
+  cursor: pointer; /* Afficher un curseur de pointeur sur le bouton */
 }
 
 #passer-commande {
@@ -809,13 +860,13 @@ th:last-child {
   border-radius: 30px;
   transition: 0.5s;
   border: none;
-  cursor: pointer;
+  cursor: pointer; /* Afficher un curseur de pointeur sur le bouton */
 }
 
 /* panier */
 .cart-icon {
   position: relative;
-  cursor: pointer;
+  cursor: pointer; /* Afficher un curseur de pointeur sur l'icône du panier */
 }
 
 .cart-count {
@@ -837,15 +888,15 @@ th:last-child {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
   width: 500px;
-  max-height: 80vh;
-  overflow-y: auto;
+  max-height: 80vh; /* Définir une hauteur maximale de 80% de la hauteur de la fenêtre */
+  overflow-y: auto; /* Ajouter une barre de défilement verticale si nécessaire */
   display: none;
-  z-index: 10;
+  z-index: 10; /* Placer le tiroir au-dessus des autres éléments */
   border-radius: 20px;
 }
 
 .cart-drawer.open {
-  display: block;
+  display: block; /* Afficher le tiroir lorsque la classe "open" est appliquée */
 }
 
 .cart-header {

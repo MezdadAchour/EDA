@@ -4,18 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Atelier d'électricité automobile</title>
+    <!-- Importation de la police de caractères Poppins depuis Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,200&display=swap"
       rel="stylesheet"
     />
+    <!-- Importation des icônes Font Awesome -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <!-- Importation du fichier CSS personnalisé -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- Header -->
+    <!-- En-tête -->
     <div class="header gradient">
       <div class="container">
         <div class="navbar">
@@ -38,7 +41,7 @@
               <li><a href="compte.html">Compte</a></li>
             </ul>
           </nav>
-          <!-- panier -->
+          <!-- Panier -->
           <div class="cart-icon">
             <img src="./assets/images/panier.png" alt="Panier" />
             <span class="cart-count">0</span>
@@ -58,20 +61,24 @@
                 <tbody id="cart-tablebody"></tbody>
               </table>
               <p>total : <span id="subtotal">0</span> DA</p>
-              <button id="confirm-command" class="btn2">Passer la commande</button>
+              <button id="confirm-command" class="btn2">
+                Passer la commande
+              </button>
             </div>
           </div>
-        <img
-          src="./assets/images/menu.png"
-          alt="Menu"
-          width="30px"
-          height="30px"
-          class="menu-icon"
-          onclick="menutoggle()"
-        />
+          <img
+            src="./assets/images/menu.png"
+            alt="Menu"
+            width="30px"
+            height="30px"
+            class="menu-icon"
+            onclick="menutoggle()"
+          />
+        </div>
       </div>
     </div>
 
+    <!-- Formulaire de connexion -->
     <div class="login-container">
       <div class="login-background">
         <img src="./assets/images/backgroud.jpg" alt="Arrière-plan" />
@@ -106,7 +113,8 @@
         </div>
       </div>
     </div>
-    <!-- Scripts -->
+
+    <!-- Importation du fichier JavaScript -->
     <script src="script.js"></script>
   </body>
 </html>
