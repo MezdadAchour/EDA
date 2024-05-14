@@ -40,15 +40,26 @@
             </a>
           </div>
           <nav>
-            <ul id="menuItems" class="active">
+            <ul id="menuItems">
               <li><a href="index.html">Accueil</a></li>
               <li><a href="pieces.html">Pièces électriques</a></li>
               <li><a href="logiciels.html">Logiciels</a></li>
               <li><a href="reparation.html">Réparation</a></li>
               <li><a href="about.html">À propos</a></li>
-              <li><a href="compte.html">Compte</a></li>
+              <li>
+                <a href="compte.html">Compte</a><span class="new">new</span>
+              </li>
             </ul>
           </nav>
+          <!-- Icône de menu pour les petits écrans -->
+          <img
+            src="./assets/images/menu.png"
+            alt="Menu"
+            width="30"
+            height="30"
+            class="menu-icon"
+            onclick="menutoggle()"
+          />
           <!-- Panier -->
           <div class="cart-icon">
             <img
@@ -80,87 +91,84 @@
             </div>
           </div>
         </div>
-        <img
-          src="./assets/images/menu.png"
-          alt="Menu"
-          width="30"
-          height="30"
-          class="menu-icon"
-          onclick="menutoggle()"
-        />
-      </div>
-    </div>
-    <div style="height: 120px"></div>
 
-    <!-- Liste des pièces -->
-    <div class="small-container">
-      <div class="row row-2">
-        <h2 class="title">Nos pièces électriques</h2>
-      </div>
+        <div style="height: 120px"></div>
 
-      <div class="row">
-        <div class="col-4">
-          <a href="./product-details.html" id="emu">
-            <div class="card">
-              <img
-                src="./assets/images/piece/emu1.png"
-                alt="emupro"
-                width="200"
-                height="200"
-              />
-              <div class="card-body">
-                <h4>EMU-pro 8</h4>
-                <div class="rating">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star-o"></i>
-                </div>
-                <p>25 000 DA</p>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-4">
-          <div class="card">
-            <img
-              src="./assets/images/piece/baterie.png"
-              alt="batterie"
-              width="200"
-              height="200"
-            />
-            <div class="card-body">
-              <h4>Batterie</h4>
-              <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-half-o"></i>
-                <i class="fa fa-star-o"></i>
-              </div>
-              <p>12 600 DA</p>
-            </div>
+        <!-- Liste des pièces -->
+        <div class="small-container">
+          <div class="row row-2">
+            <h2 class="title">Nos pièces électriques</h2>
           </div>
-        </div>
-        <div class="col-4">
-          <div class="card">
-            <img
-              src="./assets/images/piece/demareur.png"
-              alt="demareur"
-              width="200"
-              height="200"
-            />
-            <div class="card-body">
-              <h4>Démarreur</h4>
-              <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-half-o"></i>
-              </div>
-              <p>12 000 DA</p>
+
+          <div class="row">
+            <div class="col-4">
+              <a href="./product-details.html" id="emu">
+                <div class="card">
+                  <img
+                    src="./assets/images/piece/emu1.png"
+                    alt="emupro"
+                    width="200"
+                    height="200"
+                  />
+                  <div class="card-body">
+                    <h4>EMU-pro 8</h4>
+                    <div class="rating">
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star-o"></i>
+                    </div>
+                    <p>25 000 DA</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col-4">
+              <a href="#">
+                <div class="card">
+                  <img
+                    src="./assets/images/piece/baterie.png"
+                    alt="batterie"
+                    width="200"
+                    height="200"
+                  />
+                  <div class="card-body">
+                    <h4>Batterie</h4>
+                    <div class="rating">
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star-half-o"></i>
+                      <i class="fa fa-star-o"></i>
+                    </div>
+                    <p>12 600 DA</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col-4">
+              <a href="#">
+                <div class="card">
+                  <img
+                    src="./assets/images/piece/demareur.png"
+                    alt="demareur"
+                    width="200"
+                    height="200"
+                  />
+                  <div class="card-body">
+                    <h4>Démarreur</h4>
+                    <div class="rating">
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star-half-o"></i>
+                    </div>
+                    <p>12 000 DA</p>
+                  </div>
+                </div>
+              </a>
             </div>
           </div>
         </div>

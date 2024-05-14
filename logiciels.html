@@ -40,22 +40,33 @@
             </a>
           </div>
           <nav>
-            <ul id="menuItems" class="active">
+            <ul id="menuItems">
               <li><a href="index.html">Accueil</a></li>
               <li><a href="pieces.html">Pièces électriques</a></li>
               <li><a href="logiciels.html">Logiciels</a></li>
               <li><a href="reparation.html">Réparation</a></li>
               <li><a href="about.html">À propos</a></li>
-              <li><a href="compte.html">Compte</a></li>
+              <li>
+                <a href="compte.html">Compte</a><span class="new">new</span>
+              </li>
             </ul>
           </nav>
-          <!-- panier -->
-          <div class="cart-icon">
-            <img 
-            src="./assets/images/panier.png" 
-            alt="Panier"
+          <!-- Icône de menu pour les petits écrans -->
+          <img
+            src="./assets/images/menu.png"
+            alt="Menu"
             width="30"
             height="30"
+            class="menu-icon"
+            onclick="menutoggle()"
+          />
+          <!-- Panier -->
+          <div class="cart-icon">
+            <img
+              src="./assets/images/panier.png"
+              alt="Panier"
+              width="30"
+              height="30"
             />
             <span class="cart-count">0</span>
             <div class="cart-drawer">
@@ -80,91 +91,88 @@
             </div>
           </div>
         </div>
-        <img
-          src="./assets/images/menu.png"
-          alt="Menu"
-          width="30px"
-          height="30px"
-          class="menu-icon"
-          onclick="menutoggle()"
-        />
+      </div>
+    </div>
+    <div style="height: 120px"></div>
+
+    <!-- Liste des logiciels -->
+    <div class="small-container">
+      <div class="row row-2">
+        <h2 class="title">Nos derniers logiciels</h2>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <a href="#">
+            <div class="card">
+              <img
+                src="./assets/images/logiciels/autocom.jpg"
+                alt="autocom"
+                width="200"
+                height="200"
+              />
+              <div class="card-body">
+                <h4>autocom</h4>
+                <div class="rating">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-o"></i>
+                </div>
+                <p>8 000 DA</p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-4">
+          <a href="#">
+            <div class="card">
+              <img
+                src="./assets/images/logiciels/autodata.jpg"
+                alt="Autodata"
+                width="200"
+                height="200"
+              />
+              <div class="card-body">
+                <h4>Autodata</h4>
+                <div class="rating">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-half-o"></i>
+                  <i class="fa fa-star-o"></i>
+                </div>
+                <p>6 500 DA</p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-4">
+          <a href="#">
+            <div class="card">
+              <img
+                src="./assets/images/logiciels/hynes.png"
+                alt="Haynes Pro"
+                width="200"
+                height="200"
+              />
+              <div class="card-body">
+                <h4>Haynes Pro</h4>
+                <div class="rating">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-half-o"></i>
+                </div>
+                <p>12 000 DA</p>
+              </div>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
 
-        <div style="height: 120px"></div>
-
-        <!-- Liste des logiciels -->
-        <div class="small-container">
-          <div class="row row-2">
-            <h2 class="title">Nos logiciels</h2>
-          </div>
-
-          <div class="row">
-            <div class="col-4">
-              <div class="card">
-                <img
-                  src="./assets/images/logiciels/autocom.jpg"
-                  alt="autocom"
-                  width="200"
-                  height="200"
-                />
-                <div class="card-body">
-                  <h4>autocom</h4>
-                  <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                  </div>
-                  <p>8 000 DA</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-4">
-              <div class="card">
-                <img
-                  src="./assets/images/logiciels/autodata.jpg"
-                  alt="Autodata"
-                  width="200"
-                  height="200"
-                />
-                <div class="card-body">
-                  <h4>Autodata</h4>
-                  <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
-                    <i class="fa fa-star-o"></i>
-                  </div>
-                  <p>6 500 DA</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-4">
-              <div class="card">
-                <img
-                  src="./assets/images/logiciels/hynes.png"
-                  alt="Haynes Pro"
-                  width="200"
-                  height="200"
-                />
-                <div class="card-body">
-                  <h4>Haynes Pro</h4>
-                  <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
-                  </div>
-                  <p>12 000 DA</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
     <!-- Footer -->
     <div class="footer">
       <div class="container">

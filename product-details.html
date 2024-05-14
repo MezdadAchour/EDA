@@ -20,9 +20,9 @@
     />
     <link rel="stylesheet" href="./style.css" />
   </head>
-  <body>
+  <body class="gradient" style="height: 100vh;">
     <!-- Header -->
-    <header class="header gradient">
+    <div class="header gradient">
       <div class="container">
         <div class="navbar">
           <div class="logo">
@@ -30,23 +30,40 @@
               <img
                 src="./assets/images/logo.png"
                 alt="Logo de l'atelier"
-                width="100px"
+                width="100"
+                height="100"
               />
             </a>
           </div>
           <nav>
-            <ul id="menuItems" class="active">
+            <ul id="menuItems">
               <li><a href="index.html">Accueil</a></li>
               <li><a href="pieces.html">Pièces électriques</a></li>
               <li><a href="logiciels.html">Logiciels</a></li>
               <li><a href="reparation.html">Réparation</a></li>
               <li><a href="about.html">À propos</a></li>
-              <li><a href="compte.html">Compte</a></li>
+              <li>
+                <a href="compte.html">Compte</a><span class="new">new</span>
+              </li>
             </ul>
           </nav>
-          <!-- panier -->
+          <!-- Icône de menu pour les petits écrans -->
+          <img
+            src="./assets/images/menu.png"
+            alt="Menu"
+            width="30"
+            height="30"
+            class="menu-icon"
+            onclick="menutoggle()"
+          />
+          <!-- Panier -->
           <div class="cart-icon">
-            <img src="./assets/images/panier.png" alt="Panier" />
+            <img
+              src="./assets/images/panier.png"
+              alt="Panier"
+              width="30"
+              height="30"
+            />
             <span class="cart-count">0</span>
             <div class="cart-drawer">
               <div class="cart-header">
@@ -69,17 +86,12 @@
               </button>
             </div>
           </div>
-          <img
-            src="./assets/images/menu.png"
-            alt="Menu"
-            width="30px"
-            height="30px"
-            class="menu-icon"
-            onclick="menutoggle()"
-          />
         </div>
       </div>
-    </header>
+    </div>
+
+    <div style="height: 100px"></div>
+
 
     <main>
       <div class="small-container single-product" style="margin-top: 120px">

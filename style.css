@@ -43,7 +43,7 @@ nav ul {
 
 .menu-icon {
   display: none;
-  cursor: pointer; /* Afficher un curseur de pointeur sur l'icône du menu */
+  cursor: pointer;
 }
 
 nav ul li {
@@ -90,6 +90,7 @@ a:hover {
   align-items: center;
   flex-wrap: wrap;
   justify-content: space-around;
+  margin-bottom: 50px;
 }
 
 .col-2 {
@@ -214,6 +215,42 @@ a:hover {
 
 .col-3:hover h4 {
   color: #fff;
+}
+.col-4 {
+  flex-basis: 30%;
+  min-width: 250px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  text-align: center;
+  transform: translateY(20px); /* Elément initialement déplacé vers le bas */
+  transition: opacity 0.5s, transform 0.5s; /* Transition animée */
+  height: 450px;
+}
+
+.col-4 a {
+  text-decoration: none;
+  color: #555;
+}
+
+.col-4 img {
+  width: 80%;
+  border-radius: 10px;
+  transition: transform 0.5s; /* Transition animée pour l'image */
+}
+
+.col-4:hover {
+  background-color: #ff523b;
+  color: #fff;
+  transform: translateY(0px); /* Elément initialement déplacé vers le bas */
+  transition: 0.5s;
+}
+
+.col-4:hover img {
+  transform: scale(1.1); /* Effet d'agrandissement de l'image lors du survol */
+}
+
+.col-4:hover h4 {
+  color: #333;
 }
 
 /* ===== CARTES DES PRODUITS ===== */
@@ -349,99 +386,6 @@ ul {
   cursor: pointer; /* Afficher un curseur de pointeur sur l'icône de menu */
 }
 
-/* ===== RESPONSIVE ===== */
-@media only screen and (max-width: 800px) {
-  nav {
-    position: absolute;
-    top: 90px;
-    left: 0;
-    background: #333;
-    width: 100%;
-    transition: all 0.5s ease-out; /* Animation lors de l'ouverture/fermeture du menu */
-  }
-  .carousel{
-    display: none;
-  }
-  #menuItems a:hover {
-    text-decoration: none;
-    background-color: transparent; /* Couleur de fond au survol */
-    color: #fff;
-    border-radius: 30px;
-    padding: 15px;
-  }
-  .menu-icon {
-    display: inline-block; /* Afficher l'icône de menu sur les petits écrans */
-    position: absolute;
-    top: 50px;
-    left: 5px;
-    z-index: 10;
-    cursor: pointer; /* Afficher un curseur de pointeur sur l'icône de menu */
-  }
-  #menuItems {
-    display: none; /* Masqué */
-  }
-
-  #menuItems.active {
-    display: inline-block; /* Affiché lorsque la classe "active" est présente */
-  }
-  nav ul li {
-    display: block;
-    margin-right: 50px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-
-  nav ul li a {
-    color: #fff; /* Couleur des liens dans le menu pour les petits écrans */
-  }
-
-  .row {
-    justify-content: center;
-  }
-
-  .col-2,
-  .col-3 {
-    flex-basis: 100%; /* Faire en sorte que les colonnes occupent toute la largeur sur les petits écrans */
-    max-width: none; /* Annuler la largeur maximale définie pour les colonnes */
-  }
-
-  .footer-col-1,
-  .footer-col-2,
-  .footer-col-3,
-  .footer-col-4 {
-    flex-basis: 100%;
-    text-align: center;
-    margin-bottom: 30px;
-  }
-
-  .cart-drawer {
-    width: 100%; /* Faire en sorte que le tiroir du panier occupe toute la largeur sur les petits écrans */
-    max-width: none; /* Annuler la largeur maximale définie pour le tiroir du panier */
-    left: 0; /* Aligner le tiroir du panier à gauche sur les petits écrans */
-    border-radius: 0; /* Supprimer les coins arrondis sur les petits écrans */
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .row {
-    text-align: center;
-  }
-
-  .col-2,
-  .col-3 {
-    flex-basis: 100%;
-  }
-
-  .footer-col-1,
-  .footer-col-2,
-  .footer-col-3,
-  .footer-col-4 {
-    flex-basis: 100%;
-    text-align: center;
-    margin-bottom: 30px;
-  }
-}
-
 /* Section À propos */
 .about-section {
   padding: 80px 0;
@@ -561,14 +505,6 @@ ul {
 
 .testimonial-body {
   position: relative;
-}
-
-.quote-icon {
-  font-size: 24px;
-  color: #ff523b;
-  position: absolute;
-  top: -20px;
-  left: 0;
 }
 
 .testimonial-card p {
@@ -916,4 +852,100 @@ th:last-child {
   padding: 8px;
   text-align: left;
   border-bottom: 1px solid #ddd;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media only screen and (max-width: 800px) {
+  nav {
+    position: absolute;
+    top: 90px;
+    left: 0;
+    background: #333;
+    width: 100%;
+    transition: all 0.5s ease-out; /* Animation lors de l'ouverture/fermeture du menu */
+  }
+
+  .carousel {
+    display: none;
+  }
+
+  #menuItems a:hover {
+    text-decoration: none;
+    background-color: transparent; /* Couleur de fond au survol */
+    color: #fff;
+    border-radius: 30px;
+    padding: 15px;
+  }
+
+  .menu-icon {
+    display: inline-block; /* Afficher l'icône de menu sur les petits écrans */
+    position: absolute;
+    top: 50px;
+    left: 5px;
+    z-index: 10;
+    cursor: pointer; /* Afficher un curseur de pointeur sur l'icône de menu */
+  }
+
+  #menuItems {
+    display: none; /* Masqué */
+  }
+
+  #menuItems.active {
+    display: inline-block; /* Affiché lorsque la classe "active" est présente */
+  }
+
+  nav ul li {
+    display: block;
+    margin-right: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  nav ul li a {
+    color: #fff; /* Couleur des liens dans le menu pour les petits écrans */
+  }
+
+  .row {
+    justify-content: center;
+    flex-wrap: wrap; /* Permet l'encapsulation des éléments */
+  }
+
+  .col-4 {
+    flex-basis: 45%; /* Définit la largeur de base pour les colonnes de produits/logiciels */
+    margin: 10px; /* Ajoute un petit espacement entre les colonnes */
+    height: 390px;
+  }
+
+  .footer-col-1,
+  .footer-col-2,
+  .footer-col-3,
+  .footer-col-4 {
+    flex-basis: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .cart-drawer {
+    width: auto;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .row {
+    text-align: center;
+  }
+
+  .col-4 {
+    flex-basis: 100%; /* Les colonnes de produits/logiciels occupent toute la largeur sur les petits écrans */
+  }
+
+  .footer-col-1,
+  .footer-col-2,
+  .footer-col-3,
+  .footer-col-4 {
+    flex-basis: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+  }
 }
