@@ -10,7 +10,15 @@ const cartIcon = document.querySelector(".cart-icon");
 const cartDrawer = document.querySelector(".cart-drawer");
 
 // Initialisation du panier
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let cart = [];
+
+function initCartFromLocalStorage() {
+  const storedCart = JSON.parse(localStorage.getItem("cart"));
+  if (storedCart) {
+    cart = storedCart;
+    updateCart();
+  }
+}
 
 function updateCart() {
   renderCartTable();
@@ -22,21 +30,24 @@ function updateCart() {
 }
 
 function renderCartTable() {
-  let tableHTML = "";
+  const cartTableBody = document.querySelector("#cart-tablebody");
+  if (cartTableBody) {
+    let tableHTML = "";
 
-  cart.forEach((item, index) => {
-    tableHTML += `
-      <tr>
-        <td>${item.name}</td>
-        <td>${item.price} DA</td>
-        <td>${item.qty}</td>
-        <td>${item.price * item.qty} DA</td>
-        <td><button class="remove-item" data-index="${index}"><i class="fa fa-trash"></i></button></td>
-      </tr>
-    `;
-  });
+    cart.forEach((item, index) => {
+      tableHTML += `
+        <tr>
+          <td>${item.name}</td>
+          <td>${item.price} DA</td>
+          <td>${item.qty}</td>
+          <td>${item.price * item.qty} DA</td>
+          <td><button class="remove-item" data-index="${index}"><i class="fa fa-trash"></i></button></td>
+        </tr>
+      `;
+    });
 
-  cartTableBody.innerHTML = tableHTML;
+    cartTableBody.innerHTML = tableHTML;
+  }
 }
 
 function renderFloatingCart() {
@@ -115,7 +126,6 @@ if (addToCartBtn) {
       }
 
       updateCart();
-      renderFloatingCart();
     }
   });
 
@@ -125,11 +135,11 @@ if (addToCartBtn) {
       const index = event.target.dataset.index;
       cart.splice(index, 1);
       updateCart();
-      renderFloatingCart();
     }
   });
 
   // Mise à jour initiale du panier
+  initCartFromLocalStorage();
   updateCart();
   renderFloatingCart();
 
@@ -174,7 +184,6 @@ if (commandeForm) {
     e.target.reset();
     cart = [];
     updateCart();
-    renderFloatingCart();
     alert(`Votre commande (${commandeId}) a été envoyée avec succès !`);
   });
 }
