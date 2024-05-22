@@ -62,6 +62,14 @@ commandeForm.addEventListener('submit', function(event) {
   const telephone = document.getElementById('telephone').value;
   const adresse = document.getElementById('adresse').value;
 
+   // Vérifier les données avant de les envoyer
+   console.log('Données de la commande :');
+   console.log('Nom :', nom);
+   console.log('Prénom :', prenom);
+   console.log('Téléphone :', telephone);
+   console.log('Adresse :', adresse);
+   console.log('Articles :', cart);
+   
   // Envoyer les données de la commande à la Realtime Database
   const commandeRef = database.ref('commandes').push({
     nom,
