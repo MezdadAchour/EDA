@@ -51,6 +51,20 @@ function removeFromCart(productId) {
 // Référence à la base de données Realtime Database
 const database = firebase.database();
 
+// Récupérer les éléments du modal
+const modal = document.getElementById("confirmation-modal");
+const closeBtn = document.getElementsByClassName("close")[0];
+
+// Fonction pour afficher le modal
+function showModal() {
+  modal.style.display = "block";
+}
+
+// Fonction pour fermer le modal
+function closeModal() {
+  modal.style.display = "none";
+}
+
 // Gérer la soumission du formulaire de commande
 const commandeForm = document.getElementById('commande-form');
 commandeForm.addEventListener('submit', function(event) {
@@ -62,14 +76,14 @@ commandeForm.addEventListener('submit', function(event) {
   const telephone = document.getElementById('telephone').value;
   const adresse = document.getElementById('adresse').value;
 
-   // Vérifier les données avant de les envoyer
-   console.log('Données de la commande :');
-   console.log('Nom :', nom);
-   console.log('Prénom :', prenom);
-   console.log('Téléphone :', telephone);
-   console.log('Adresse :', adresse);
-   console.log('Articles :', cart);
-   
+  // Vérifier les données avant de les envoyer
+  console.log('Données de la commande :');
+  console.log('Nom :', nom);
+  console.log('Prénom :', prenom);
+  console.log('Téléphone :', telephone);
+  console.log('Adresse :', adresse);
+  console.log('Articles :', cart);
+
   // Envoyer les données de la commande à la Realtime Database
   const commandeRef = database.ref('commandes').push({
     nom,
@@ -81,6 +95,9 @@ commandeForm.addEventListener('submit', function(event) {
 
   console.log('Commande envoyée avec l\'ID :', commandeRef.key);
 
+  // Afficher le modal de confirmation
+  showModal();
+
   // Réinitialiser le panier après la commande
   cart = [];
   localStorage.removeItem('cart');
@@ -89,3 +106,15 @@ commandeForm.addEventListener('submit', function(event) {
   // Réinitialiser le formulaire
   commandeForm.reset();
 });
+
+// Fermer le modal lorsque l'utilisateur clique sur la croix
+closeBtn.onclick = function () {
+  closeModal();
+};
+
+// Fermer le modal lorsque l'utilisateur clique à l'extérieur du modal
+window.onclick = function (event) {
+  if (event.target == modal) {
+    closeModal();
+  }
+};
