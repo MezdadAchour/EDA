@@ -824,15 +824,20 @@ th:last-child {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
   width: 500px;
-  max-height: 80vh; /* Définir une hauteur maximale de 80% de la hauteur de la fenêtre */
-  overflow-y: auto; /* Ajouter une barre de défilement verticale si nécessaire */
-  display: none;
-  z-index: 10; /* Placer le tiroir au-dessus des autres éléments */
+  max-height: 80vh;
+  overflow-y: auto;
+  display: none; /* Remplacer cette ligne */
+  opacity: 0; /* Ajouter cette ligne */
+  visibility: hidden; /* Ajouter cette ligne */
+  transition: opacity 0.3s, visibility 0.3s; /* Ajouter cette ligne */
+  z-index: 10;
   border-radius: 20px;
 }
 
 .cart-drawer.open {
-  display: block; /* Afficher le tiroir lorsque la classe "open" est appliquée */
+  display: block; /* Remplacer cette ligne */
+  opacity: 1; /* Ajouter cette ligne */
+  visibility: visible; /* Ajouter cette ligne */
 }
 
 .cart-header {

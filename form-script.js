@@ -1,189 +1,130 @@
-// Fonctions pour la gestion du panier
-const addToCartBtnElem = document.getElementById("add-to-cart");
-const addToCartBtn = addToCartBtnElem ? addToCartBtnElem : null;
+// Récupérer le panier depuis le localStorage
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-const cartItems = document.getElementById("cart-items");
-const cartTableBody = document.getElementById("cart-tablebody");
-const subtotalElem = document.getElementById("subtotal");
-const cartCountElem = document.querySelector(".cart-count");
-const cartIcon = document.querySelector(".cart-icon");
-const cartDrawer = document.querySelector(".cart-drawer");
+// Fonction pour ajouter un produit au panier
+function addToCart(product) {
+  // Vérifier si le produit existe déjà dans le panier
+  const existingProduct = cart.find((item) => item.id === product.id);
 
-// Initialisation du panier
-let cart = [];
-
-function initCartFromLocalStorage() {
-  const storedCart = JSON.parse(localStorage.getItem("cart"));
-  if (storedCart) {
-    cart = storedCart;
-    updateCart();
+  if (existingProduct) {
+    // Si le produit existe, mettre à jour la quantité
+    existingProduct.quantity += parseInt(document.getElementById("qty").value);
+  } else {
+    // Sinon, ajouter le produit au panier
+    product.quantity = parseInt(document.getElementById("qty").value);
+    cart.push(product);
   }
-}
 
-function updateCart() {
-  renderCartTable();
-  renderFloatingCart();
-  updateSubtotal();
-  updateFloatingSubtotal();
+  // Mettre à jour le localStorage
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  // Mettre à jour le compteur du panier
   updateCartCount();
-  saveCartToLocalStorage();
+// Mettre à jour le contenu du tiroir du panier
+  updateCartDrawer();
 }
 
-function renderCartTable() {
-  const cartTableBody = document.querySelector("#cart-tablebody");
-  if (cartTableBody) {
-    let tableHTML = "";
+// Fonction pour mettre à jour le contenu du tiroir du panier
+function updateCartDrawer() {
+  const cartTableBody = document.getElementById('cart-tablebody');
 
-    cart.forEach((item, index) => {
-      tableHTML += `
-        <tr>
-          <td>${item.name}</td>
-          <td>${item.price} DA</td>
-          <td>${item.qty}</td>
-          <td>${item.price * item.qty} DA</td>
-          <td><button class="remove-item" data-index="${index}"><i class="fa fa-trash"></i></button></td>
-        </tr>
-      `;
-    });
-
-    cartTableBody.innerHTML = tableHTML;
-  }
-}
-
-function renderFloatingCart() {
-  const cartTableBody = document.querySelector(".cart-drawer .table tbody");
-  let tableHTML = "";
-
-  cart.forEach((item) => {
-    tableHTML += `
-      <tr>
+  // Parcourir le panier et mettre à jour les lignes de tableau existantes ou créer de nouvelles si nécessaire
+  cart.forEach((item, index) => {
+    const rowElement = cartTableBody.children[index];
+    if (rowElement) {
+      // Mettre à jour les valeurs de la ligne existante
+      rowElement.children[0].textContent = item.name;
+      rowElement.children[1].textContent = `${item.price} DA`;
+      rowElement.children[2].textContent = item.quantity;
+      rowElement.children[3].textContent = `${item.price * item.quantity} DA`;
+    } else {
+      // Créer une nouvelle ligne pour cet article
+      const newRowElement = document.createElement('tr');
+      newRowElement.innerHTML = `
         <td>${item.name}</td>
         <td>${item.price} DA</td>
-        <td>${item.qty}</td>
-        <td>${item.price * item.qty} DA</td>
-      </tr>
-    `;
+        <td>${item.quantity}</td>
+        <td>${item.price * item.quantity} DA</td>
+      `;
+      cartTableBody.appendChild(newRowElement);
+    }
   });
 
-  cartTableBody.innerHTML = tableHTML;
+  // Supprimer les lignes en trop
+  const rowsToRemove = Array.from(cartTableBody.children).slice(cart.length);
+  rowsToRemove.forEach(row => row.remove());
 }
 
-function updateSubtotal() {
-  const total = cart.reduce((acc, item) => acc + item.price * item.qty, 0);
-  subtotalElem.textContent = total.toFixed(2);
-}
 
-function updateFloatingSubtotal() {
-  const subtotalElem = document.querySelector(".cart-drawer #subtotal");
-  const total = cart.reduce((acc, item) => acc + item.price * item.qty, 0);
-  subtotalElem.textContent = total.toFixed(2);
-}
-
+// Fonction pour mettre à jour le compteur du panier
 function updateCartCount() {
-  cartCountElem.textContent = cart.length;
-  renderCartItems();
+  const cartCount = document.querySelector(".cart-count");
+  const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+  cartCount.textContent = totalQuantity;
 }
 
-function renderCartItems() {
-  let itemsHTML = "";
-  if (cart.length > 0) {
-    itemsHTML = `Dans le panier (${cart.length}) : ${cart
-      .map((item) => `${item.name} x ${item.qty}`)
-      .join(", ")}`;
-  } else {
-    itemsHTML = "Panier vide";
+// Ajouter un écouteur d'événement pour le bouton "Ajouter au panier"
+const addToCartButton = document.getElementById("add-to-cart");
+addToCartButton.addEventListener("click", () => {
+  const productId = addToCartButton.getAttribute("data-id");
+  const productName = addToCartButton.getAttribute("data-name");
+  const productPrice = addToCartButton.getAttribute("data-price");
+  const product = { id: productId, name: productName, price: productPrice };
+  addToCart(product);
+});
+
+// Appeler la fonction updateCartCount() lorsque le DOM est chargé
+document.addEventListener("DOMContentLoaded", updateCartCount);
+
+// Appeler la fonction pour afficher le contenu initial du panier
+document.addEventListener('DOMContentLoaded', updateCartDrawer);
+
+function displayCartItems() {
+  const cartTableBody = document.getElementById('cart-tablebody');
+  cartTableBody.innerHTML = ''; // Vider le contenu existant
+
+  let subtotal = 0;
+
+  // Récupérer le panier depuis le localStorage
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  cart.forEach(item => {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td>${item.name}</td>
+      <td>${item.price} DA</td>
+      <td>${item.quantity}</td>
+      <td>${item.price * item.quantity} DA</td>
+      <td>
+        <button class="suppicn" data-id="${item.id}">
+          <i class="fa fa-times"></i>
+        </button>
+      </td>
+    `;
+    cartTableBody.appendChild(row);
+    subtotal += item.price * item.quantity;
+  });
+
+  const subtotalElement = document.getElementById('subtotal');
+  subtotalElement.textContent = subtotal + ' DA';
+}
+
+// Appel de la fonction pour afficher le contenu du panier
+document.addEventListener('DOMContentLoaded', displayCartItems);
+
+// Gérer la suppression d'articles du panier
+const cartTableBody = document.getElementById('cart-tablebody');
+cartTableBody.addEventListener('click', function(event) {
+  if (event.target.classList.contains('suppicn')) {
+    const productId = event.target.getAttribute('data-id');
+    removeFromCart(productId);
+    displayCartItems(); // Mettre à jour l'affichage du panier
   }
-  cartItems.innerHTML = itemsHTML;
-}
+});
 
-function saveCartToLocalStorage() {
-  localStorage.setItem("cart", JSON.stringify(cart));
-}
-
-// Gérer l'ajout d'un élément au panier
-if (addToCartBtn) {
-  addToCartBtn.addEventListener("click", () => {
-    const qtyInput = document.getElementById("qty");
-    if (qtyInput) {
-      let qty = parseInt(qtyInput.value);
-      if (isNaN(qty)) {
-        qty = 1;
-      }
-      const itemData = {
-        id: addToCartBtn.dataset.id,
-        name: addToCartBtn.dataset.name,
-        price: parseFloat(addToCartBtn.dataset.price),
-        qty,
-      };
-
-      const existingItemIndex = cart.findIndex(
-        (item) => item.id === itemData.id
-      );
-      if (existingItemIndex !== -1) {
-        cart[existingItemIndex].qty += qty;
-      } else {
-        cart.push(itemData);
-      }
-
-      updateCart();
-    }
-  });
-
-  // Gérer la suppression d'un élément du panier
-  document.addEventListener("click", function (event) {
-    if (event.target.classList.contains("remove-item")) {
-      const index = event.target.dataset.index;
-      cart.splice(index, 1);
-      updateCart();
-    }
-  });
-
-  // Mise à jour initiale du panier
-  initCartFromLocalStorage();
-  updateCart();
-  renderFloatingCart();
-
-  // Gestion du panier
-  cartIcon.addEventListener("click", () => {
-    cartDrawer.classList.toggle("open");
-  });
-}
-
-const commandeForm = document.getElementById("commande-form");
-
-if (commandeForm) {
-  commandeForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-
-    // Validation des données du formulaire
-    const nom = formData.get("nom").trim();
-    const prenom = formData.get("prenom").trim();
-    const telephone = formData.get("telephone").trim();
-    const adresse = formData.get("adresse").trim();
-
-    if (!nom || !prenom || !telephone || !adresse) {
-      alert("Veuillez remplir tous les champs obligatoires.");
-      return;
-    }
-
-    const commande = {
-      nom,
-      prenom,
-      telephone,
-      adresse,
-      panier: cart.map(({ id, name, price, qty }) => ({ id, name, price, qty })),
-    };
-
-    // Enregistrer la commande dans Firebase
-    const commandeRef = firebase.database().ref("commandes").push();
-    const commandeId = commandeRef.key;
-    commandeRef.set(commande);
-
-    // Réinitialiser le formulaire et le panier
-    e.target.reset();
-    cart = [];
-    updateCart();
-    alert(`Votre commande (${commandeId}) a été envoyée avec succès !`);
-  });
+// Fonction pour supprimer un article du panier
+function removeFromCart(productId) {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const updatedCart = cart.filter(item => item.id !== productId);
+  localStorage.setItem('cart', JSON.stringify(updatedCart));
 }
