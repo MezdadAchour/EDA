@@ -20,41 +20,41 @@ function addToCart(product) {
 
   // Mettre à jour le compteur du panier
   updateCartCount();
-// Mettre à jour le contenu du tiroir du panier
+  // Mettre à jour le contenu du tiroir du panier
   updateCartDrawer();
 }
 
 // Fonction pour mettre à jour le contenu du tiroir du panier
 function updateCartDrawer() {
-  const cartTableBody = document.getElementById('cart-tablebody');
+  const cartTableBody = document.getElementById("cart-tablebody");
+  cartTableBody.innerHTML = ""; // Vider le contenu existant
 
-  // Parcourir le panier et mettre à jour les lignes de tableau existantes ou créer de nouvelles si nécessaire
-  cart.forEach((item, index) => {
-    const rowElement = cartTableBody.children[index];
-    if (rowElement) {
-      // Mettre à jour les valeurs de la ligne existante
-      rowElement.children[0].textContent = item.name;
-      rowElement.children[1].textContent = `${item.price} DA`;
-      rowElement.children[2].textContent = item.quantity;
-      rowElement.children[3].textContent = `${item.price * item.quantity} DA`;
-    } else {
-      // Créer une nouvelle ligne pour cet article
-      const newRowElement = document.createElement('tr');
-      newRowElement.innerHTML = `
-        <td>${item.name}</td>
-        <td>${item.price} DA</td>
-        <td>${item.quantity}</td>
-        <td>${item.price * item.quantity} DA</td>
-      `;
-      cartTableBody.appendChild(newRowElement);
-    }
+  let subtotal = 0;
+
+  // Récupérer le panier depuis le localStorage
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  cart.forEach((item) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${item.name}</td>
+      <td>${item.price} DA</td>
+      <td>${item.quantity}</td>
+      <td>${item.price * item.quantity} DA</td>
+    `;
+    cartTableBody.appendChild(row);
+    subtotal += item.price * item.quantity;
   });
+
+  const subtotalElement = document.getElementById("subtotal");
+  if (subtotalElement) {
+    subtotalElement.textContent = subtotal + " DA";
+  }
 
   // Supprimer les lignes en trop
   const rowsToRemove = Array.from(cartTableBody.children).slice(cart.length);
-  rowsToRemove.forEach(row => row.remove());
+  rowsToRemove.forEach((row) => row.remove());
 }
-
 
 // Fonction pour mettre à jour le compteur du panier
 function updateCartCount() {
@@ -77,19 +77,19 @@ addToCartButton.addEventListener("click", () => {
 document.addEventListener("DOMContentLoaded", updateCartCount);
 
 // Appeler la fonction pour afficher le contenu initial du panier
-document.addEventListener('DOMContentLoaded', updateCartDrawer);
+document.addEventListener("DOMContentLoaded", updateCartDrawer);
 
 function displayCartItems() {
-  const cartTableBody = document.getElementById('cart-tablebody');
-  cartTableBody.innerHTML = ''; // Vider le contenu existant
+  const cartTableBody = document.getElementById("cart-tablebody");
+  cartTableBody.innerHTML = ""; // Vider le contenu existant
 
   let subtotal = 0;
 
   // Récupérer le panier depuis le localStorage
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  cart.forEach(item => {
-    const row = document.createElement('tr');
+  cart.forEach((item) => {
+    const row = document.createElement("tr");
     row.innerHTML = `
       <td>${item.name}</td>
       <td>${item.price} DA</td>
@@ -105,18 +105,18 @@ function displayCartItems() {
     subtotal += item.price * item.quantity;
   });
 
-  const subtotalElement = document.getElementById('subtotal');
-  subtotalElement.textContent = subtotal + ' DA';
+  const subtotalElement = document.getElementById("subtotal");
+  subtotalElement.textContent = subtotal + " DA";
 }
 
 // Appel de la fonction pour afficher le contenu du panier
-document.addEventListener('DOMContentLoaded', displayCartItems);
+document.addEventListener("DOMContentLoaded", displayCartItems);
 
 // Gérer la suppression d'articles du panier
-const cartTableBody = document.getElementById('cart-tablebody');
-cartTableBody.addEventListener('click', function(event) {
-  if (event.target.classList.contains('suppicn')) {
-    const productId = event.target.getAttribute('data-id');
+const cartTableBody = document.getElementById("cart-tablebody");
+cartTableBody.addEventListener("click", function (event) {
+  if (event.target.classList.contains("suppicn")) {
+    const productId = event.target.getAttribute("data-id");
     removeFromCart(productId);
     displayCartItems(); // Mettre à jour l'affichage du panier
   }
@@ -124,7 +124,7 @@ cartTableBody.addEventListener('click', function(event) {
 
 // Fonction pour supprimer un article du panier
 function removeFromCart(productId) {
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  const updatedCart = cart.filter(item => item.id !== productId);
-  localStorage.setItem('cart', JSON.stringify(updatedCart));
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const updatedCart = cart.filter((item) => item.id !== productId);
+  localStorage.setItem("cart", JSON.stringify(updatedCart));
 }

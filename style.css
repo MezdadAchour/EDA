@@ -392,6 +392,9 @@ ul {
 }
 
 .car-image {
+  width: 100%; 
+  display: flex; 
+  justify-content: center;
   margin-bottom: 30px;
   overflow: hidden;
   border-radius: 10px;

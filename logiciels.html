@@ -60,36 +60,38 @@
             class="menu-icon"
             onclick="menutoggle()"
           />
-          <!-- Panier -->
-          <div class="cart-icon">
-            <img
-              src="./assets/images/panier.png"
-              alt="Panier"
-              width="30"
-              height="30"
-            />
-            <span class="cart-count">0</span>
-            <div class="cart-drawer">
-              <div class="cart-header">
-                <h3>Votre panier</h3>
-              </div>
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>Article</th>
-                    <th>Prix</th>
-                    <th>Quantité</th>
-                    <th>Total</th>
-                  </tr>
-                </thead>
-                <tbody id="cart-tablebody"></tbody>
-              </table>
-              <p>total : <span id="subtotal">0</span> DA</p>
-              <button id="confirm-command" class="btn2">
-                Passer la commande
-              </button>
-            </div>
-          </div>
+
+                    <!-- Panier -->
+                    <div class="cart-icon">
+                      <img
+                        src="./assets/images/panier.png"
+                        alt="Panier"
+                        width="30"
+                        height="30"
+                      />
+                      <span class="cart-count">0</span>
+                      <div class="cart-drawer">
+                        <div class="cart-header">
+                          <h3>Votre panier</h3>
+                        </div>
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th>Article</th>
+                              <th>Prix</th>
+                              <th>Quantité</th>
+                              <th>Total</th>
+                            </tr>
+                          </thead>
+                          <tbody id="cart-tablebody">
+                            <div id="cart-items"></div>
+                          </tbody>
+                        </table>
+                        <a href="panier.html" id="confirm-command" class="btn2">
+                          aller au panier
+                        </a>
+                      </div>
+                    </div>
         </div>
       </div>
     </div>
@@ -221,6 +223,15 @@
       </div>
     </div>
     <!-- Scripts -->
-    <script src="script.js"></script>
+    <script src="main-script.js"></script>
+    <script src="form-script.js"></script>
+
+    <!-- database -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", updateCartDrawer);
+      updateCartCount();
+    </script>
   </body>
 </html>
