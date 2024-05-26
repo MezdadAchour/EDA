@@ -118,3 +118,14 @@ window.onclick = function (event) {
     closeModal();
   }
 };
+
+// Menu toggle
+function menutoggle() {
+  const menuItems = document.getElementById("menuItems");
+
+  if (menuItems) {
+    menuItems.classList.toggle("active");
+  } else {
+    console.error("Élément 'menuItems' introuvable dans le document.");
+  }
+}
