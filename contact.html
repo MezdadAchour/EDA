@@ -14,9 +14,9 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <link rel="stylesheet" href="contact.css" />
     <!-- Importation du fichier CSS personnalisé -->
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="contact.css" />
   </head>
   <body class="gradient">
     <!-- Header -->
@@ -42,9 +42,9 @@
               <li><a href="contact.html">Contact</a></li>
 
               <li><a href="about.html">À propos</a></li>
-              <li>
+              <!-- <li>
                 <a href="compte.html">Compte</a><span class="new">new</span>
-              </li>
+              </li> -->
             </ul>
           </nav>
           <!-- Icône de menu pour les petits écrans -->
@@ -70,10 +70,14 @@
       </div>
       <div class="container">
         <div class="row">
-          <div class="col-2">
+          <div class="col-2 card" style="width: 100%; height: 450px">
             <h2>Contactez-nous</h2>
             <p>Téléphone: <strong>+213 5 60 52 95 39</strong></p>
             <p>Email: <strong>autodiag37654@gmail.com</strong></p>
+            <p>
+              Adresse:
+              <strong>Ait Aggouacha, Larbaa Nath Irathen, Tizi-ouzou</strong>
+            </p>
           </div>
           <div class="col-2">
             <div class="map-container">
@@ -137,5 +141,24 @@
 
     <!-- Importation du fichier JavaScript -->
     <script src="./main-script.js"></script>
+    <script>
+const cards = document.querySelectorAll('.card');
+
+cards.forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const xRotation = 20 * ((x - rect.width / 2) / rect.width);
+    const yRotation = -20 * ((y - rect.height / 2) / rect.height);
+    const rotationString = `rotateX(${yRotation}deg) rotateY(${xRotation}deg) translateZ(50px)`;
+    card.style.transform = rotationString;
+  });
+
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0px)';
+  });
+});
+    </script>
   </body>
 </html>

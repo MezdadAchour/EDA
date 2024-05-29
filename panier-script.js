@@ -35,8 +35,9 @@ document.addEventListener('DOMContentLoaded', displayCartItems);
 // Gérer la suppression d'articles du panier
 const cartTableBody = document.getElementById('cart-tablebody');
 cartTableBody.addEventListener('click', function(event) {
-  if (event.target.classList.contains('suppicn')) {
-    const productId = event.target.getAttribute('data-id');
+  if (event.target.classList.contains('fa-times')) {
+    const button = event.target.closest('.suppicn');
+    const productId = button.getAttribute('data-id');
     removeFromCart(productId);
     displayCartItems(); // Mettre à jour l'affichage du panier
   }

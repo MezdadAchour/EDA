@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Liste des rendez-vous</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+      }
+
+      #login-container {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      #rendez-vous-list-container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="login-container">
+      <h2>Connexion Administrateur</h2>
+      <form id="login-form">
+        <input type="password" id="password" placeholder="Mot de passe" />
+        <button type="submit">Se connecter</button>
+      </form>
+    </div>
+
+    <div id="rendez-vous-list-container" style="display: none;">
+      <h2>Liste des rendez-vous</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Téléphone</th>
+            <th>Marque</th>
+            <th>Modèle</th>
+            <th>Description</th>
+            <th>Date</th>
+            <th>Heure</th>
+          </tr>
+        </thead>
+        <tbody id="rendez-vous-list"></tbody>
+      </table>
+    </div>
+
+    <!-- Inclure les scripts Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-database.js"></script>
+    <script src="./base-de-donnees.js"></script>
+
+    <!-- Inclure le script pour gérer l'affichage de la liste des rendez-vous -->
+    <script src="./admin-rendez-vous.js"></script>
+  </body>
+</html>
