@@ -1,16 +1,16 @@
 // Apparition des catégories
-window.addEventListener("DOMContentLoaded", function () {
+window.addEventListener("DOMContentLoaded", function() {
   const categories = document.querySelectorAll(".col-3");
 
-  const observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
       if (entry.isIntersecting) {
         entry.target.classList.add("show");
       }
     });
   });
 
-  categories.forEach(function (category) {
+  categories.forEach(function(category) {
     observer.observe(category);
   });
 });
@@ -39,8 +39,11 @@ function toggleCartDrawer() {
 cartIcon.addEventListener('click', toggleCartDrawer);
 
 // Fermer le tiroir du panier si l'utilisateur clique en dehors
-window.addEventListener('click', function(event) {
-  if (!event.target.closest('.cart-icon, .cart-drawer')) {
+document.addEventListener('click', function(event) {
+  const isClickInsideCartDrawer = cartDrawer.contains(event.target);
+  const isClickOnCartIcon = event.target === cartIcon;
+
+  if (!isClickInsideCartDrawer && !isClickOnCartIcon) {
     cartDrawer.classList.remove('open');
   }
-});
+}, true); // Utiliser la capture pour permettre la propagation de l'événement
