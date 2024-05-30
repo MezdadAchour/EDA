@@ -8,10 +8,13 @@ function addToCart(product) {
 
   if (existingProduct) {
     // Si le produit existe, mettre à jour la quantité
-    existingProduct.quantity += parseInt(document.getElementById("qty").value);
+    existingProduct.quantity += parseInt(
+      document.getElementById("qty").value,
+      10
+    );
   } else {
     // Sinon, ajouter le produit au panier
-    product.quantity = parseInt(document.getElementById("qty").value);
+    product.quantity = parseInt(document.getElementById("qty").value, 10);
     cart.push(product);
   }
 
@@ -65,13 +68,15 @@ function updateCartCount() {
 
 // Ajouter un écouteur d'événement pour le bouton "Ajouter au panier"
 const addToCartButton = document.getElementById("add-to-cart");
-addToCartButton.addEventListener("click", () => {
-  const productId = addToCartButton.getAttribute("data-id");
-  const productName = addToCartButton.getAttribute("data-name");
-  const productPrice = addToCartButton.getAttribute("data-price");
-  const product = { id: productId, name: productName, price: productPrice };
-  addToCart(product);
-});
+if (addToCartButton) {
+  addToCartButton.addEventListener("click", () => {
+    const productId = addToCartButton.getAttribute("data-id");
+    const productName = addToCartButton.getAttribute("data-name");
+    const productPrice = addToCartButton.getAttribute("data-price");
+    const product = { id: productId, name: productName, price: productPrice };
+    addToCart(product);
+  });
+}
 
 // Appeler la fonction updateCartCount() lorsque le DOM est chargé
 document.addEventListener("DOMContentLoaded", updateCartCount);
@@ -114,13 +119,15 @@ document.addEventListener("DOMContentLoaded", displayCartItems);
 
 // Gérer la suppression d'articles du panier
 const cartTableBody = document.getElementById("cart-tablebody");
-cartTableBody.addEventListener("click", function (event) {
-  if (event.target.classList.contains("suppicn")) {
-    const productId = event.target.getAttribute("data-id");
-    removeFromCart(productId);
-    displayCartItems(); // Mettre à jour l'affichage du panier
-  }
-});
+if (cartTableBody) {
+  cartTableBody.addEventListener("click", function (event) {
+    if (event.target.classList.contains("suppicn")) {
+      const productId = event.target.getAttribute("data-id");
+      removeFromCart(productId);
+      displayCartItems(); // Mettre à jour l'affichage du panier
+    }
+  });
+}
 
 // Fonction pour supprimer un article du panier
 function removeFromCart(productId) {

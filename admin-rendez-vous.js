@@ -1,5 +1,5 @@
 // Définissez votre mot de passe ici
-const adminPassword = "MezdadAchour";
+let adminPassword = "MezdadAchour";
 
 // Récupérer une référence vers la base de données Firebase
 const database = firebase.database();
@@ -12,6 +12,7 @@ const rendezVousListContainer = document.getElementById(
   "rendez-vous-list-container"
 );
 const commandesContainer = document.getElementById("commandes-container");
+const resetPasswordBtn = document.getElementById("reset-password");
 
 // Fonction pour afficher un rendez-vous dans le tableau
 function renderRendezVous(rendezVous, rendezVousId) {
@@ -27,7 +28,9 @@ function renderRendezVous(rendezVous, rendezVousId) {
     <td>${rendezVous.date}</td>
     <td>${rendezVous.heure}</td>
     <td>${rendezVous.statut || "En cours"}</td>
-    <td><button class="toggle-status" data-id="${rendezVousId}">Terminer</button></td>
+    <td>
+      <button class="toggle-status" data-id="${rendezVousId}">Terminer</button>
+    </td>
   `;
   rendezVousList.appendChild(row);
 }
@@ -46,7 +49,10 @@ function renderCommande(commande, commandeId) {
       .join(", ")}</td>
     <td>${commande.total} DA</td>
     <td>${commande.statut || "En cours"}</td>
-    <td><button class="toggle-status" data-id="${commandeId}">Terminer</button></td>
+    <td>
+      <button class="toggle-status" data-id="${commandeId}">Terminer</button>
+      <button class="delete-commande" data-id="${commandeId}">Supprimer</button>
+    </td>
   `;
   commandesList.appendChild(row);
 }
@@ -71,6 +77,9 @@ loginForm.addEventListener("submit", (event) => {
       Object.entries(rendezVous).forEach(([rendezVousId, rendezVousData]) => {
         renderRendezVous(rendezVousData, rendezVousId);
       });
+
+      // Initialiser le tri pour la table des rendez-vous
+      new Tablesort(rendezVousList);
     });
 
     // Récupérer les commandes depuis Firebase et les afficher
@@ -81,6 +90,9 @@ loginForm.addEventListener("submit", (event) => {
       Object.entries(commandes).forEach(([commandeId, commandeData]) => {
         renderCommande(commandeData, commandeId);
       });
+
+      // Initialiser le tri pour la table des commandes
+      new Tablesort(commandesList);
     });
   } else {
     alert("Mot de passe incorrect");
@@ -111,5 +123,11 @@ commandesList.addEventListener("click", (event) => {
   if (event.target.classList.contains("toggle-status")) {
     const commandeId = event.target.getAttribute("data-id");
     toggleStatus(commandeId, commandesRef);
+  } else if (event.target.classList.contains("delete-commande")) {
+    const commandeId = event.target.getAttribute("data-id");
+    if (confirm(`Êtes-vous sûr de vouloir supprimer cette commande ?`)) {
+      commandesRef.child(commandeId).remove();
+    }
   }
 });
+

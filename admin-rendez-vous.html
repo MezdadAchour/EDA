@@ -4,36 +4,69 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Liste des rendez-vous</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
     <style>
       body {
-        font-family: Arial, sans-serif;
+        font-family: 'Roboto', sans-serif;
         margin: 0;
         padding: 20px;
       }
-
       #login-container {
         text-align: center;
         margin-bottom: 20px;
       }
-
       #rendez-vous-list-container {
         max-width: 800px;
         margin: 0 auto;
       }
-
       table {
         width: 100%;
         border-collapse: collapse;
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
       }
-
       th, td {
-        padding: 8px;
+        padding: 12px 15px;
         text-align: left;
         border-bottom: 1px solid #ddd;
+        transition: background-color 0.3s ease;
       }
-
       th {
-        background-color: #f2f2f2;
+        background-color: #3f51b5;
+        color: #fff;
+      }
+      tr:nth-child(even) {
+        background-color: #f5f5f5;
+      }
+      tr:hover {
+        background-color: #e0e0e0;
+      }
+      #login-form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      #login-form input {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-right: 10px;
+      }
+      #login-form button {
+        padding: 10px 20px;
+        background-color: #3f51b5;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      #commandes-container {
+        margin-top: 40px;
       }
     </style>
   </head>
@@ -45,7 +78,6 @@
         <button type="submit">Se connecter</button>
       </form>
     </div>
-
     <div id="rendez-vous-list-container" style="display: none;">
       <h2>Liste des rendez-vous</h2>
       <table>
@@ -64,7 +96,6 @@
         <tbody id="rendez-vous-list"></tbody>
       </table>
     </div>
-
     <div id="commandes-container" style="display: none;">
       <h2>Liste des commandes</h2>
       <table>
@@ -81,12 +112,10 @@
         <tbody id="commandes-list"></tbody>
       </table>
     </div>
-
     <!-- Inclure les scripts Firebase -->
     <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-database.js"></script>
     <script src="./base-de-donnees.js"></script>
-
     <!-- Inclure le script pour gérer l'affichage de la liste des rendez-vous -->
     <script src="./admin-rendez-vous.js"></script>
   </body>
