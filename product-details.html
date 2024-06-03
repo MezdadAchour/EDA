@@ -19,6 +19,50 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./style.css" />
+    <style>
+      /* Styles pour le carrousel */
+      .product-carousel {
+        display: flex;
+        overflow: hidden;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .product-carousel img {
+        flex: 0 0 auto;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        scroll-snap-align: center;
+      }
+
+      /* Styles pour les flèches de navigation */
+      .carousel-nav {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+      }
+
+      .carousel-nav button {
+        background-color: #f2f2f2;
+        border: none;
+        color: #333;
+        padding: 8px 16px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+      }
+
+      .carousel-nav button:hover {
+        background-color: #ddd;
+      }
+    </style>
   </head>
   <body class="gradient" style="height: 100vh">
     <!-- Header -->
@@ -42,11 +86,7 @@
               <li><a href="logiciels.html">Logiciels</a></li>
               <li><a href="reparation.html">Réparation</a></li>
               <li><a href="contact.html">Contact</a></li>
-
               <li><a href="about.html">À propos</a></li>
-              <!-- <li>
-                <a href="compte.html">Compte</a><span class="new">new</span>
-              </li> -->
             </ul>
           </nav>
           <!-- Icône de menu pour les petits écrans -->
@@ -99,47 +139,36 @@
       <div class="small-container single-product" style="margin-top: 120px">
         <div class="row">
           <div class="col-2">
-            <div id="productImg">
+            <div id="productImg" class="product-carousel">
               <img
-                src="./assets/images/piece/emu1.png"
-                alt="EMU-pro 8"
+                src="./assets/images/piece/G-59/4.png"
+                alt="Actionneur turbo G-59"
                 width="100%"
                 id="productImage"
               />
+              <img
+                src="./assets/images/piece/G-59/2.png"
+                alt="Actionneur turbo G-59"
+                width="100%"
+              />
+              <img
+                src="./assets/images/piece/G-59/3.png"
+                alt="Actionneur turbo G-59"
+                width="100%"
+              />
+              <img
+                src="./assets/images/piece/G-59/1.png"
+                alt="Actionneur turbo G-59"
+                width="100%"
+              />
             </div>
-            <div class="small-img-row">
-              <div class="small-img-col">
-                <img
-                  src="./assets/images/produits/EMU-pro 8/emu1.webp"
-                  alt="EMU-pro 8"
-                  class="small-img"
-                />
-              </div>
-              <div class="small-img-col">
-                <img
-                  src="./assets/images/produits/EMU-pro 8/emu2.webp"
-                  alt="EMU-pro 8"
-                  class="small-img"
-                />
-              </div>
-              <div class="small-img-col">
-                <img
-                  src="./assets/images/produits/EMU-pro 8/emu3.webp"
-                  alt="EMU-pro 8"
-                  class="small-img"
-                />
-              </div>
-              <div class="small-img-col">
-                <img
-                  src="./assets/images/produits/EMU-pro 8/emu4.webp"
-                  alt="EMU-pro 8"
-                  class="small-img"
-                />
-              </div>
+            <div class="carousel-nav">
+              <button onclick="showPreviousImage()">&#8249;</button>
+              <button onclick="showNextImage()">&#8250;</button>
             </div>
           </div>
           <div class="col-2">
-            <h1>EMU-pro 8</h1>
+            <h1>Actionneur turbo original G-59 ford</h1>
             <div class="rating">
               <i class="fa fa-star"></i>
               <i class="fa fa-star"></i>
@@ -147,23 +176,28 @@
               <i class="fa fa-star"></i>
               <i class="fa fa-star-o"></i>
             </div>
-            <p>25 000 DA</p>
+            <p><strike>65 000 DA</strike> 60 000 DA</p>
             <h3>Détails du produit</h3>
             <p>
-              L'EMU-pro 8 est un outil de diagnostic automobile professionnel
-              polyvalent et puissant pour les véhicules légers et lourds. Conçu
-              pour simplifier le travail des garagistes, il offre une multitude
-              de fonctionnalités avancées pour la lecture et l'effacement des
-              codes d'erreur, la reprogrammation des calculateurs et bien plus
-              encore.
+              L'actionneur turbo électrique G-59 est spécialement conçu pour
+              remplacer celui des véhicules Ford Transit 2.2 TDCi 114 Kw-155 HP
+              Duratorq Euro5 à partir de 2012 et Tourneo 2.2 TDCi 114 Kw-155 HP
+              Duratorq EURO 5 de 2011 à 2013. Avec le numéro OE 6NW009550,
+              767649, cet actionneur améliore l'efficacité du turbo en réduisant
+              les temps de démarrage, ce qui se traduit par une augmentation de
+              la puissance et une meilleure économie de carburant. Fabriqué avec
+              des matériaux durables comme le plastique et le métal, il offre
+              une construction robuste et résistante à la déformation. Grâce à
+              une finition soignée et des performances exceptionnelles, cet
+              actionneur turbo vous assurera une fiabilité à long terme.
             </p>
             <label for="qty">Quantité: </label>
             <input type="number" id="qty" name="qty" value="1" min="1" />
             <button
               id="add-to-cart"
               data-id="432"
-              data-name="EMU-pro 8"
-              data-price="25000"
+              data-name="Actionneur turbo G-59"
+              data-price="60000"
               class="btn"
             >
               Ajouter au panier
@@ -175,18 +209,31 @@
 
     <!-- Scripts du carrousel -->
     <script>
-      // Sélectionner les éléments nécessaires
-      const productImg = document.getElementById("productImg");
-      const productImage = document.getElementById("productImage");
-      const smallImgs = document.getElementsByClassName("small-img");
+      const productCarousel = document.querySelector(".product-carousel");
+      const productImages = productCarousel.querySelectorAll("img");
+      let currentIndex = 0;
 
-      // Ajouter un écouteur d'événement pour chaque petite image
-      for (let i = 0; i < smallImgs.length; i++) {
-        smallImgs[i].addEventListener("click", function () {
-          // Remplacer l'image principale par la petite image cliquée
-          productImage.src = this.src;
-        });
+      function showNextImage() {
+        currentIndex = (currentIndex + 1) % productImages.length;
+        productCarousel.scrollLeft =
+          productImages[currentIndex].offsetLeft - productCarousel.offsetLeft;
       }
+
+      function showPreviousImage() {
+        currentIndex =
+          (currentIndex - 1 + productImages.length) % productImages.length;
+        productCarousel.scrollLeft =
+          productImages[currentIndex].offsetLeft - productCarousel.offsetLeft;
+      }
+
+      // Ajouter des écouteurs d'événement pour les flèches gauche et droite
+      document.addEventListener("keydown", function (event) {
+        if (event.code === "ArrowLeft") {
+          showPreviousImage();
+        } else if (event.code === "ArrowRight") {
+          showNextImage();
+        }
+      });
     </script>
 
     <!-- Scripts -->
