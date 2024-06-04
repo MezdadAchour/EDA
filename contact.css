@@ -1,71 +1,42 @@
 /* Section Contact */
 .contact-section {
   padding: 80px 0;
-  position: relative;
-  overflow: hidden;
 }
 
-.contact-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  overflow: hidden;
+.contact-image {
+  max-width: 100%;
+  border-radius: 250px 50%;
+  transition: 1s;
 }
 
-.contact-bg::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("./assets/images/bg2.jpg");
-  background-size: cover;
-  background-position: center;
-  filter: blur(5px); /* Ajout d'un effet de flou */
+.contact-image:hover {
+  border-radius: 50% 250px;
 }
 
-.row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 30px; /* Ajoute un écart de 30px entre les éléments */
+.form-container {
+  background-color: #f9f9f9;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.col-2 {
-  width: 45%;
-  height: 450px; /* Définit une hauteur fixe pour les cartes */
-  background-color: rgba(255, 255, 255, 0.9); /* Fond semi-transparent plus opaque */
-  backdrop-filter: blur(10px); /* Effet de flou sur le contenu */
-  border-radius: 10px; /* Coins légèrement arrondis */
-  padding: 40px; /* Plus d'espace intérieur */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Ombre plus douce */
+.form-title {
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Aligne verticalement le contenu */
+  margin-bottom: 30px;
 }
 
-.col-2 h2 {
-  margin-bottom: 20px;
+.contact-info {
+  margin-bottom: 30px;
 }
 
-.col-2 p {
+.contact-info p {
   margin-bottom: 10px;
-}
-
-.col-2 strong {
-  font-weight: bold;
 }
 
 .map-container {
   width: 100%;
   height: 400px;
-  margin-top: 30px;
-  border-radius: 20px;
+  border-radius: 10px;
   overflow: hidden;
 }
 
@@ -73,23 +44,4 @@
   width: 100%;
   height: 100%;
   border: none;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .row {
-    flex-direction: column;
-  }
-
-  .col-2 {
-    width: 80%;
-    margin-bottom: 30px;
-  }
-}
-
-.card {
-  position: relative;
-  transition: transform 0.3s ease-in-out;
-  transform-style: preserve-3d;
-  perspective: 1000px;
 }
